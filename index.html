@@ -1,0 +1,5809 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Luckymantra — Luck at Every Step | Modern Astrology & Personalized
+      Horoscopes
+    </title>
+    <meta
+      name="description"
+      content="Unlock your luck with personalized horoscopes (PDF/AI video/audio), 1-to-1 astrologer sessions, Vedic match-making, remedies (Pariharam), and energized accessories."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===== RESET & VARIABLES ===== */
+      :root {
+        --gold: #c4a04a;
+        --gold-bright: #d4b056;
+        --gold-dark: #a0832e;
+        --gold-pale: #f0e6cc;
+        --gold-glow: rgba(196, 160, 74, 0.12);
+        --gold-glow-md: rgba(196, 160, 74, 0.22);
+        --gold-glow-strong: rgba(196, 160, 74, 0.4);
+        --purple: #6b46a3;
+        --purple-deep: #3d1f6e;
+        --purple-light: #9b7fcc;
+        --purple-pale: #ede5f7;
+        --purple-glow: rgba(107, 70, 163, 0.12);
+        --purple-glow-md: rgba(107, 70, 163, 0.2);
+        --purple-glow-strong: rgba(107, 70, 163, 0.35);
+        --ivory: #fefbf4;
+        --cream: #f7f1e3;
+        --linen: #faf6ed;
+        --charcoal: #1a1425;
+        --earth: #2d1f3d;
+        --text: #2a2518;
+        --text-mid: #6b6252;
+        --text-soft: #9a8e7c;
+        --border-light: rgba(196, 160, 74, 0.1);
+        --border-gold: rgba(196, 160, 74, 0.25);
+        --border-purple: rgba(107, 70, 163, 0.15);
+        --white: #ffffff;
+        --green-wa: #25d366;
+        --serif: "Playfair Display", Georgia, serif;
+        --body: "Outfit", system-ui, sans-serif;
+        --tamil: "Noto Sans Tamil", "Outfit", sans-serif;
+        --ease: cubic-bezier(0.23, 1, 0.32, 1);
+        --radius: 20px;
+        --radius-sm: 14px;
+        --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.06);
+        --shadow-hover: 0 18px 50px rgba(107, 70, 163, 0.1);
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 17px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        font-family: var(--body);
+        color: var(--text);
+        background: var(--ivory);
+        overflow-x: hidden;
+        line-height: 1.7;
+      }
+
+      [data-lang="ta"] body {
+        font-family: var(--tamil);
+      }
+
+      [data-lang="ta"] h1,
+      [data-lang="ta"] h2,
+      [data-lang="ta"] h3,
+      [data-lang="ta"] h4,
+      [data-lang="ta"] h5,
+      [data-lang="ta"] p,
+      [data-lang="ta"] span,
+      [data-lang="ta"] a,
+      [data-lang="ta"] li,
+      [data-lang="ta"] button,
+      [data-lang="ta"] input,
+      [data-lang="ta"] blockquote,
+      [data-lang="ta"] div {
+        font-family: var(--tamil);
+      }
+
+      [data-lang="ta"] .serif-font {
+        font-family: var(--tamil);
+      }
+
+      ::selection {
+        background: var(--gold-pale);
+        color: var(--text);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+        height: auto;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* ===== LOADER ===== */
+      #loader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background: var(--ivory);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: opacity 0.7s var(--ease), visibility 0.7s;
+      }
+
+      #loader.out {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .loader-ring {
+        width: 54px;
+        height: 54px;
+        border: 2px solid var(--gold-pale);
+        border-top-color: var(--gold);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+
+      .loader-brand {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        color: var(--gold);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-top: 1rem;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ===== LANGUAGE SWITCHER ===== */
+      .lang-bar {
+        position: fixed;
+        top: 60px;
+        right: 0px;
+        z-index: 9600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.78rem;
+        background: rgba(30, 27, 22, 0.88);
+        backdrop-filter: blur(10px);
+        border-radius: 0 0 0 10px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .lang-bar.show {
+        transform: none;
+      }
+
+      .lang-bar .lang-label {
+        font-weight: 500;
+        font-size: 0.72rem;
+      }
+
+      .lang-btn {
+        background: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.6);
+        padding: 0.25rem 0.7rem;
+        border-radius: 100px;
+        font-family: var(--body);
+        font-size: 0.72rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: 500;
+      }
+
+      .lang-btn:hover,
+      .lang-btn.active {
+        background: var(--gold);
+        color: var(--white);
+        border-color: var(--gold);
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9000;
+        height: 72px;
+        background: rgba(254, 251, 244, 0.9);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-bottom: 1px solid var(--border-light);
+        display: flex;
+        align-items: center;
+        padding: 0 clamp(1.2rem, 4vw, 3.5rem);
+        transition: box-shadow 0.3s;
+      }
+
+      header.scrolled {
+        box-shadow: 0 2px 40px rgba(196, 160, 74, 0.06);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        font-family: var(--serif);
+        font-size: 1.45rem;
+        font-weight: 600;
+        color: var(--gold);
+        z-index: 9001;
+      }
+
+      .logo-mark {
+        width: 34px;
+        height: 34px;
+        border: 1.5px solid var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .logo-mark::after {
+        content: "";
+        width: 9px;
+        height: 9px;
+        background: var(--gold);
+        border-radius: 50%;
+      }
+
+      .nav-spacer {
+        flex: 1;
+      }
+
+      nav.desktop {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      nav.desktop a {
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--text-mid);
+        transition: color 0.25s;
+        position: relative;
+      }
+
+      nav.desktop a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1.5px;
+        background: var(--gold);
+        transition: width 0.3s var(--ease);
+      }
+
+      nav.desktop a:hover {
+        color: var(--gold);
+      }
+
+      nav.desktop a:hover::after {
+        width: 100%;
+      }
+
+      .header-cta {
+        margin-left: 1.5rem;
+        background: var(--gold);
+        color: var(--white);
+        padding: 0.55rem 1.5rem;
+        border-radius: 100px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .header-cta:hover {
+        background: var(--gold-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(196, 160, 74, 0.3);
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 9001;
+        padding: 4px;
+      }
+
+      .hamburger span {
+        width: 24px;
+        height: 1.5px;
+        background: var(--text);
+        transition: all 0.3s;
+        transform-origin: center;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(4.5px, 4.5px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(4.5px, -4.5px);
+      }
+      .menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 28px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 10001;
+      }
+
+      .mobile-nav {
+        position: fixed;
+        inset: 0;
+        z-index: 9000;
+        background: var(--ivory);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s var(--ease);
+      }
+
+      .mobile-nav.open {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .mobile-nav a {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 400;
+        color: var(--text);
+        padding: 0.6rem 0;
+        opacity: 0;
+        transform: translateY(15px);
+        transition: all 0.4s var(--ease), color 0.25s;
+      }
+
+      .mobile-nav.open a {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .mobile-nav a:hover {
+        color: var(--gold);
+      }
+
+      .mobile-nav .sep {
+        width: 30px;
+        height: 1px;
+        background: var(--gold-pale);
+        margin: 0.8rem 0;
+      }
+
+      @media (max-width: 1000px) {
+        nav.desktop,
+        .header-cta {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
+
+      /* ===== GLOBALS ===== */
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 clamp(1.2rem, 4vw, 3rem);
+      }
+
+      section {
+        padding: clamp(4rem, 9vw, 7.5rem) 0;
+      }
+
+      .label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.8rem;
+        display: block;
+      }
+
+      .heading {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+        line-height: 1.15;
+        color: var(--text);
+        margin-bottom: 1rem;
+      }
+
+      .heading .gold {
+        color: var(--gold);
+      }
+
+      .heading .purple {
+        color: var(--purple);
+      }
+
+      .heading em {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .subtext {
+        font-size: 1.08rem;
+        color: var(--text-mid);
+        line-height: 1.75;
+        max-width: 620px;
+      }
+
+      .subtext.center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--body);
+        font-size: 0.95rem;
+        font-weight: 600;
+        padding: 0.9rem 2.2rem;
+        border-radius: 100px;
+        cursor: pointer;
+        border: none;
+        transition: all 0.35s var(--ease);
+      }
+
+      .btn-gold {
+        background: var(--gold);
+        color: var(--white);
+        box-shadow: 0 4px 20px rgba(196, 160, 74, 0.25);
+      }
+
+      .btn-gold:hover {
+        background: var(--gold-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(196, 160, 74, 0.35);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--text);
+        border: 1.5px solid var(--border-gold);
+      }
+
+      .btn-outline:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        background: var(--gold-glow);
+      }
+
+      .btn-dark {
+        background: var(--earth);
+        color: var(--white);
+      }
+
+      .btn-dark:hover {
+        background: var(--charcoal);
+        transform: translateY(-2px);
+      }
+
+      .btn-white {
+        background: var(--white);
+        color: var(--text);
+        box-shadow: var(--shadow-card);
+      }
+
+      .btn-white:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .btn svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .rv {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+      }
+
+      .rv.vis {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .img-cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        padding: 110px clamp(1.2rem, 5vw, 5rem) 70px;
+        background: linear-gradient(
+          165deg,
+          var(--ivory) 0%,
+          #f8f3ff 35%,
+          var(--ivory) 65%,
+          #fff9ee 100%
+        );
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .hero-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        opacity: 0.35;
+      }
+
+      .hero-orb.a {
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          var(--gold-glow-strong),
+          transparent 70%
+        );
+        top: -10%;
+        right: -8%;
+        animation: drift1 9s ease-in-out infinite;
+      }
+
+      .hero-orb.b {
+        width: 450px;
+        height: 450px;
+        background: radial-gradient(
+          circle,
+          rgba(107, 70, 163, 0.18),
+          transparent 70%
+        );
+        bottom: -15%;
+        left: -12%;
+        animation: drift2 11s ease-in-out infinite;
+      }
+
+      .hero-orb.c {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(
+          circle,
+          rgba(107, 70, 163, 0.12),
+          transparent 70%
+        );
+        top: 15%;
+        left: 60%;
+        animation: drift1 12s ease-in-out infinite reverse;
+      }
+
+      @keyframes drift1 {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+
+        50% {
+          transform: translate(-25px, 15px);
+        }
+      }
+
+      @keyframes drift2 {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+
+        50% {
+          transform: translate(15px, -20px);
+        }
+      }
+
+      .hero-mandala {
+        position: absolute;
+        width: 580px;
+        height: 580px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.065;
+        animation: rotSlow 80s linear infinite;
+      }
+
+      @keyframes rotSlow {
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 780px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--gold-glow);
+        border: 1px solid rgba(196, 160, 74, 0.18);
+        border-radius: 100px;
+        padding: 0.45rem 1.3rem;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold-dark);
+        margin-bottom: 2rem;
+        animation: heroUp 0.8s var(--ease) forwards;
+        opacity: 0;
+      }
+
+      .hero-badge .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--gold);
+        animation: pulse2 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse2 {
+        0%,
+        100% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      .hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(2.8rem, 6vw, 4.8rem);
+        font-weight: 300;
+        line-height: 1.08;
+        color: var(--text);
+        margin-bottom: 1.3rem;
+        animation: heroUp 0.8s var(--ease) 0.1s forwards;
+        opacity: 0;
+      }
+
+      .hero h1 .gold {
+        color: var(--gold);
+        font-weight: 500;
+      }
+
+      .hero-sub {
+        font-size: clamp(1.05rem, 1.7vw, 1.2rem);
+        color: var(--text-mid);
+        line-height: 1.7;
+        max-width: 580px;
+        margin: 0 auto 1rem;
+        animation: heroUp 0.8s var(--ease) 0.2s forwards;
+        opacity: 0;
+      }
+
+      .hero-value {
+        font-size: 1rem;
+        color: var(--text-soft);
+        line-height: 1.65;
+        max-width: 560px;
+        margin: 0 auto 2.5rem;
+        animation: heroUp 0.8s var(--ease) 0.3s forwards;
+        opacity: 0;
+      }
+
+      .hero-ctas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        animation: heroUp 0.8s var(--ease) 0.4s forwards;
+        opacity: 0;
+      }
+
+      .hero-trust {
+        display: flex;
+        justify-content: center;
+        gap: 1.6rem;
+        flex-wrap: wrap;
+        margin-top: 2.5rem;
+        animation: heroUp 0.8s var(--ease) 0.55s forwards;
+        opacity: 0;
+      }
+
+      .hero-trust span {
+        font-size: 0.85rem;
+        color: var(--text-soft);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .hero-trust .chk {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--gold-glow-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 0.65rem;
+        font-weight: 700;
+      }
+
+      @keyframes heroUp {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ===== MARQUEE STRIP ===== */
+      .marquee-strip {
+        background: linear-gradient(
+          90deg,
+          var(--gold),
+          var(--purple),
+          var(--gold)
+        );
+        color: var(--white);
+        padding: 0.7rem 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .marquee-track {
+        display: flex;
+        animation: marqueeScroll 25s linear infinite;
+        gap: 3rem;
+      }
+
+      .marquee-track span {
+        font-size: 0.88rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      @keyframes marqueeScroll {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ===== PROBLEM-PROMISE ===== */
+      .promise {
+        background: linear-gradient(
+          135deg,
+          var(--cream) 0%,
+          #f3eef9 50%,
+          var(--cream) 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .promise-bg {
+        position: absolute;
+        right: -5%;
+        top: -20%;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          var(--gold-glow-md),
+          transparent 70%
+        );
+        filter: blur(60px);
+      }
+
+      .promise-inner {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .promise-chips {
+        display: flex;
+        justify-content: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+      }
+
+      .chip {
+        background: var(--gold);
+        color: var(--white);
+        padding: 0.5rem 1.4rem;
+        border-radius: 100px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .chip:hover {
+        background: var(--gold-dark);
+        transform: translateY(-2px);
+      }
+
+      .chip.outline {
+        background: transparent;
+        color: var(--gold);
+        border: 1.5px solid var(--gold);
+      }
+
+      .chip.outline:hover {
+        background: var(--gold-glow);
+      }
+
+      /* ===== IMAGE BANNER (FULL WIDTH) ===== */
+      .img-banner {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+      }
+
+      .img-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .img-banner-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          rgba(30, 27, 22, 0.8) 0%,
+          rgba(30, 27, 22, 0.3) 100%
+        );
+        display: flex;
+        align-items: center;
+        padding: 0 clamp(2rem, 6vw, 6rem);
+      }
+
+      .img-banner-text {
+        max-width: 550px;
+        color: var(--white);
+      }
+
+      .img-banner-text .label {
+        color: var(--gold-bright);
+      }
+
+      .img-banner-text h2 {
+        font-family: var(--serif);
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        font-weight: 400;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+      }
+
+      .img-banner-text p {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.65;
+        margin-bottom: 1.5rem;
+      }
+
+      /* ===== USP PILLARS ===== */
+      .usp {
+        background: var(--ivory);
+      }
+
+      .usp-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.3rem;
+        margin-top: 2.5rem;
+      }
+
+      .usp-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 2rem 1.5rem;
+        text-align: center;
+        border: 1px solid var(--border-light);
+        transition: all 0.4s var(--ease);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .usp-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 50px rgba(107, 70, 163, 0.1);
+        border-color: var(--purple-light);
+      }
+
+      .usp-img {
+        width: 100%;
+        height: 140px;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        margin-bottom: 1.2rem;
+      }
+
+      .usp-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .usp-card h3 {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .usp-card p {
+        font-size: 0.95rem;
+        color: var(--text-mid);
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .usp-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .usp-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== TWO PATHS ===== */
+      .paths {
+        background: linear-gradient(
+          135deg,
+          #f3eef9 0%,
+          var(--cream) 50%,
+          #f8f3ff 100%
+        );
+      }
+
+      .paths-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 2.5rem;
+      }
+
+      .path-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: clamp(2rem, 3.5vw, 2.8rem);
+        border: 1px solid var(--border-light);
+        transition: all 0.4s var(--ease);
+      }
+
+      .path-card:hover {
+        box-shadow: 0 20px 50px rgba(107, 70, 163, 0.08);
+        border-color: var(--purple-light);
+      }
+
+      .path-card h3 {
+        font-family: var(--serif);
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .path-sub {
+        font-size: 0.95rem;
+        color: var(--text-soft);
+        font-style: italic;
+        margin-bottom: 1.8rem;
+      }
+
+      .steps-flow {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .step-row {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .step-num {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        background: linear-gradient(135deg, var(--gold), var(--purple));
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+
+      .step-body h4 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .step-body p {
+        font-size: 0.95rem;
+        color: var(--text-mid);
+        line-height: 1.6;
+      }
+
+      .step-body .micro {
+        font-size: 0.88rem;
+        color: var(--text-soft);
+        font-style: italic;
+        margin-top: 0.3rem;
+      }
+
+      .prob-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .prob-item {
+        display: flex;
+        gap: 0.9rem;
+        align-items: flex-start;
+        padding: 1rem 1.1rem;
+        background: var(--linen);
+        border-radius: var(--radius-sm);
+        transition: all 0.3s;
+      }
+
+      .prob-item:hover {
+        background: var(--gold-glow);
+        transform: translateX(4px);
+      }
+
+      .prob-img {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+
+      .prob-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .prob-item h5 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 0.15rem;
+      }
+
+      .prob-item p {
+        font-size: 0.9rem;
+        color: var(--text-mid);
+        line-height: 1.5;
+      }
+
+      .path-note {
+        padding: 1.1rem 1.3rem;
+        background: var(--gold-glow);
+        border-left: 3px solid var(--gold);
+        border-radius: 0 12px 12px 0;
+        margin-bottom: 1.5rem;
+      }
+
+      .path-note p {
+        font-size: 0.92rem;
+        color: var(--text-mid);
+        font-style: italic;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .paths-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== FEATURED MODULES ===== */
+      .modules {
+        background: var(--ivory);
+      }
+
+      .mod-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+
+      .mod-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border-light);
+        transition: all 0.4s var(--ease);
+        position: relative;
+      }
+
+      .mod-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--purple),
+          var(--gold),
+          var(--purple),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.4s;
+        z-index: 2;
+      }
+
+      .mod-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 50px rgba(107, 70, 163, 0.1);
+        border-color: var(--purple-light);
+      }
+
+      .mod-card:hover::before {
+        opacity: 1;
+      }
+
+      .mod-img {
+        height: 180px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .mod-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s var(--ease);
+      }
+
+      .mod-card:hover .mod-img img {
+        transform: scale(1.05);
+      }
+
+      .mod-img-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(30, 27, 22, 0.5) 0%,
+          transparent 60%
+        );
+      }
+
+      .mod-body {
+        padding: 1.5rem;
+      }
+
+      .mod-body h3 {
+        font-family: var(--serif);
+        font-size: 1.25rem;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+      }
+
+      .mod-tag {
+        font-size: 0.88rem;
+        color: var(--gold);
+        font-weight: 600;
+        font-style: italic;
+        margin-bottom: 0.6rem;
+      }
+
+      .mod-body .desc {
+        font-size: 0.95rem;
+        color: var(--text-mid);
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+      }
+
+      .mod-link {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--gold);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: gap 0.3s;
+      }
+
+      .mod-link:hover {
+        gap: 0.65rem;
+      }
+
+      @media (max-width: 900px) {
+        .mod-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .mod-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== STATS COUNTER ===== */
+      .stats {
+        background: linear-gradient(
+          135deg,
+          #2d1f3d 0%,
+          #1a1425 50%,
+          #251635 100%
+        );
+        color: var(--white);
+        text-align: center;
+        padding: 3.5rem 0;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: 1px solid rgba(107, 70, 163, 0.2);
+        border-bottom: 1px solid rgba(107, 70, 163, 0.2);
+        padding: 1.5rem 0;
+        gap: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .stat-item .stat-num {
+        font-family: var(--serif);
+        font-size: clamp(2.2rem, 4vw, 3.2rem);
+        font-weight: 600;
+        color: var(--gold-bright);
+        line-height: 1;
+      }
+
+      .stat-item .stat-label {
+        font-size: 0.92rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 0.4rem;
+      }
+
+      @media (max-width: 600px) {
+        .stats-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ===== ASTROLOGERS ===== */
+      .astros {
+        background: var(--cream);
+      }
+
+      .astro-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.3rem;
+        margin-top: 2.5rem;
+      }
+
+      .astro-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 1.8rem 1.4rem;
+        text-align: center;
+        border: 1px solid var(--border-light);
+        transition: all 0.4s var(--ease);
+      }
+
+      .astro-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 50px rgba(107, 70, 163, 0.1);
+      }
+
+      .astro-avatar {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        margin: 0 auto 1rem;
+        overflow: hidden;
+        border: 3px solid var(--gold-pale);
+      }
+
+      .astro-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .astro-card h4 {
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-weight: 500;
+        margin-bottom: 0.2rem;
+      }
+
+      .astro-spec {
+        font-size: 0.88rem;
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+      }
+
+      .astro-meta {
+        font-size: 0.85rem;
+        color: var(--text-soft);
+        margin-bottom: 0.3rem;
+      }
+
+      .astro-price {
+        /* display: none; */
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 1rem;
+      }
+
+      .astro-actions {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+      }
+
+      .astro-actions .btn {
+        padding: 0.5rem 1.1rem;
+        font-size: 0.82rem;
+      }
+
+      @media (max-width: 900px) {
+        .astro-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .astro-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== EXPECT / WHAT YOU GET ===== */
+      .expect {
+        background: var(--ivory);
+      }
+
+      .expect-row {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .expect-item {
+        background: var(--white);
+        padding: 1.6rem 1rem;
+        border-radius: 16px;
+        text-align: center;
+        border: 1px solid var(--border-light);
+        transition: all 0.3s;
+      }
+
+      .expect-item:hover {
+        border-color: var(--gold);
+        transform: translateY(-3px);
+      }
+
+      .expect-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: linear-gradient(
+          135deg,
+          var(--gold-glow-md),
+          var(--purple-glow-md)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.8rem;
+        font-size: 1.5rem;
+      }
+
+      .expect-item p {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      @media (max-width: 768px) {
+        .expect-row {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .expect-row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ===== CALCULATORS ===== */
+      .calcs {
+        background: var(--cream);
+      }
+
+      .calc-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.3rem;
+        margin-top: 2.5rem;
+      }
+
+      .calc-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border-light);
+        transition: all 0.4s var(--ease);
+        cursor: pointer;
+      }
+
+      .calc-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+        border-color: var(--border-gold);
+      }
+
+      .calc-card-img {
+        height: 120px;
+        overflow: hidden;
+      }
+
+      .calc-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s var(--ease);
+      }
+
+      .calc-card:hover .calc-card-img img {
+        transform: scale(1.08);
+      }
+
+      .calc-body {
+        padding: 1.3rem;
+        text-align: center;
+      }
+
+      .calc-body h4 {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+      }
+
+      .calc-body p {
+        font-size: 0.9rem;
+        color: var(--text-mid);
+        line-height: 1.5;
+        margin-bottom: 0.8rem;
+      }
+
+      .calc-link {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--gold);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 768px) {
+        .calc-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .calc-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== SHOP / ACCESSORIES ===== */
+      .shop {
+        background: var(--ivory);
+      }
+
+      .shop-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.3rem;
+        margin-top: 2.5rem;
+      }
+
+      .shop-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border-light);
+        transition: all 0.4s var(--ease);
+      }
+
+      .shop-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 50px rgba(107, 70, 163, 0.1);
+      }
+
+      .shop-card-img {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .shop-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s var(--ease);
+      }
+
+      .shop-card:hover .shop-card-img img {
+        transform: scale(1.05);
+      }
+
+      .shop-badge {
+        position: absolute;
+        top: 0.8rem;
+        left: 0.8rem;
+        background: var(--gold);
+        color: var(--white);
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 0.3rem 0.8rem;
+        border-radius: 100px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .shop-info {
+        padding: 1.3rem;
+        text-align: center;
+      }
+
+      .shop-info h4 {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 0.2rem;
+      }
+
+      .shop-info p {
+        font-size: 0.88rem;
+        color: var(--text-mid);
+        margin-bottom: 0.5rem;
+        line-height: 1.45;
+      }
+
+      .shop-info .price {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--gold-dark);
+        margin-bottom: 0.8rem;
+      }
+
+      @media (max-width: 900px) {
+        .shop-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .shop-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== REMEDIES ===== */
+      .remedies {
+        background: var(--cream);
+      }
+
+      .remedy-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+
+      .remedy-card {
+        display: flex;
+        gap: 1.5rem;
+        align-items: stretch;
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border-light);
+        transition: all 0.4s var(--ease);
+      }
+
+      .remedy-card:hover {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+        transform: translateY(-3px);
+      }
+
+      .remedy-card-img {
+        width: 220px;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+
+      .remedy-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .remedy-content {
+        padding: clamp(1.3rem, 2.5vw, 2rem);
+        flex: 1;
+      }
+
+      .remedy-content h3 {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .remedy-content > p {
+        font-size: 0.98rem;
+        color: var(--text-mid);
+        line-height: 1.65;
+        margin-bottom: 0.8rem;
+      }
+
+      .remedy-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .remedy-list li {
+        font-size: 0.92rem;
+        color: var(--text-mid);
+        padding-left: 1.1rem;
+        position: relative;
+        line-height: 1.55;
+      }
+
+      .remedy-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.6rem;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+      }
+
+      @media (max-width: 700px) {
+        .remedy-card {
+          flex-direction: column;
+        }
+
+        .remedy-card-img {
+          width: 100%;
+          height: 180px;
+        }
+      }
+
+      /* ===== LINEAGE ===== */
+      .lineage {
+        background: linear-gradient(
+          135deg,
+          var(--ivory) 0%,
+          #f8f4ff 50%,
+          var(--ivory) 100%
+        );
+      }
+
+      .lineage-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.8rem;
+        margin-top: 2rem;
+      }
+
+      .lineage-item {
+        background: var(--white);
+        padding: 1.4rem 1rem;
+        border-radius: var(--radius-sm);
+        text-align: center;
+        border: 1px solid var(--border-light);
+        transition: all 0.3s;
+      }
+
+      .lineage-item:hover {
+        border-color: var(--purple-light);
+        transform: translateY(-3px);
+      }
+
+      .lineage-item strong {
+        font-size: 0.95rem;
+        color: var(--text);
+        display: block;
+        margin-bottom: 0.2rem;
+      }
+
+      .lineage-item span {
+        font-size: 0.82rem;
+        color: var(--text-soft);
+      }
+
+      @media (max-width: 768px) {
+        .lineage-list {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .lineage-list {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== ZODIAC STRIP ===== */
+      .zodiac-strip {
+        background: var(--cream);
+        padding: 3rem 0;
+        overflow: hidden;
+      }
+
+      .zodiac-scroll {
+        display: flex;
+        gap: 1.5rem;
+        animation: zodiacScroll 30s linear infinite;
+      }
+
+      .zodiac-sign {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        min-width: 80px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      .zodiac-sign:hover {
+        transform: scale(1.1);
+      }
+
+      .zodiac-symbol {
+        font-size: 2.2rem;
+      }
+
+      .zodiac-name {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text-mid);
+      }
+
+      @keyframes zodiacScroll {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testi {
+        background: linear-gradient(
+          135deg,
+          #251635 0%,
+          #1a1425 50%,
+          #2d1f3d 100%
+        );
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testi::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at 30% 40%,
+            rgba(107, 70, 163, 0.25),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 60%,
+            var(--gold-glow-strong),
+            transparent 50%
+          );
+        opacity: 0.5;
+      }
+
+      .testi .label {
+        color: var(--gold-bright);
+      }
+
+      .testi .heading {
+        color: var(--white);
+      }
+
+      .testi-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.3rem;
+        margin-top: 2.5rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .testi-card {
+        background: rgba(255, 255, 255, 0.07);
+        border-radius: var(--radius);
+        padding: 2rem 1.5rem;
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        text-align: left;
+      }
+
+      .testi-card blockquote {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        font-weight: 300;
+        font-style: italic;
+        line-height: 1.65;
+        margin-bottom: 1.2rem;
+        color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .testi-card blockquote::before {
+        content: '"';
+        font-family: var(--serif);
+        font-size: 2.5rem;
+        color: var(--gold-bright);
+        position: absolute;
+        left: 0;
+        top: -0.3rem;
+        line-height: 1;
+      }
+
+      .testi-stars {
+        color: var(--gold-bright);
+        font-size: 0.9rem;
+        letter-spacing: 0.15em;
+        margin-bottom: 0.6rem;
+      }
+
+      .testi-author {
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--gold-bright);
+      }
+
+      .testi-loc {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 0.1rem;
+      }
+
+      @media (max-width: 768px) {
+        .testi-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== HOW FORMATS WORK ===== */
+      .formats {
+        background: var(--ivory);
+      }
+
+      .formats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+
+      .format-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border-light);
+        transition: all 0.4s var(--ease);
+      }
+
+      .format-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 50px rgba(107, 70, 163, 0.1);
+        border-color: var(--purple-light);
+      }
+
+      .format-card-img {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .format-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .format-body {
+        padding: 1.5rem;
+      }
+
+      .format-body h3 {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin-bottom: 0.4rem;
+      }
+
+      .format-body p {
+        font-size: 0.95rem;
+        color: var(--text-mid);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .format-features {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      .format-features li {
+        font-size: 0.88rem;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .format-features li::before {
+        content: "✓";
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 0.8rem;
+      }
+
+      @media (max-width: 768px) {
+        .formats-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== LEAD CAPTURE ===== */
+      .lead {
+        background: linear-gradient(
+          135deg,
+          var(--cream) 0%,
+          #f3eef9 50%,
+          var(--cream) 100%
+        );
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .lead::before {
+        content: "";
+        position: absolute;
+        left: -10%;
+        top: -20%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          var(--gold-glow-md),
+          transparent 70%
+        );
+        filter: blur(60px);
+        border-radius: 50%;
+      }
+
+      .lead-form {
+        max-width: 540px;
+        margin: 2rem auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .lead-form input,
+      .lead-form select {
+        width: 100%;
+        padding: 1rem 1.3rem;
+        border: 1.5px solid rgba(196, 160, 74, 0.15);
+        border-radius: 14px;
+        font-family: var(--body);
+        font-size: 1rem;
+        background: var(--white);
+        color: var(--text);
+        transition: border-color 0.3s;
+      }
+      .lead-form select {
+        font-family: inherit;
+      }
+      .lead-form input:focus {
+        outline: none;
+        border-color: var(--gold);
+      }
+
+      .lead-form .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+      }
+
+      @media (max-width: 480px) {
+        .lead-form .row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== ETHOS ===== */
+      .ethos {
+        background: var(--ivory);
+        text-align: center;
+      }
+
+      .ethos-points {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+      }
+
+      .ethos-point {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1rem;
+        color: var(--text-mid);
+        font-weight: 500;
+      }
+
+      .ethos-chk {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--gold-glow-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      /* ===== FAQS ===== */
+      .faqs {
+        background: var(--cream);
+      }
+
+      .faq-list {
+        max-width: 740px;
+        margin: 2rem auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .faq-item {
+        background: var(--white);
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-light);
+        overflow: hidden;
+        transition: border-color 0.3s;
+      }
+
+      .faq-item:hover {
+        border-color: var(--border-gold);
+      }
+
+      .faq-q {
+        padding: 1.3rem 1.5rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 1.02rem;
+        user-select: none;
+      }
+
+      .faq-q .arrow {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s;
+        color: var(--gold);
+        flex-shrink: 0;
+      }
+
+      .faq-item.open .faq-q .arrow {
+        transform: rotate(180deg);
+      }
+
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s var(--ease), padding 0.3s;
+        padding: 0 1.5rem;
+      }
+
+      .faq-item.open .faq-a {
+        max-height: 300px;
+        padding: 0 1.5rem 1.3rem;
+      }
+
+      .faq-a p {
+        font-size: 0.98rem;
+        color: var(--text-mid);
+        line-height: 1.7;
+      }
+
+      /* ===== BLOG ===== */
+      .blog {
+        background: var(--ivory);
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-top: 2.5rem;
+      }
+
+      .blog-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border-light);
+        transition: all 0.4s var(--ease);
+        cursor: pointer;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 50px rgba(107, 70, 163, 0.1);
+      }
+
+      .blog-thumb {
+        height: 180px;
+        overflow: hidden;
+      }
+
+      .blog-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s var(--ease);
+      }
+
+      .blog-card:hover .blog-thumb img {
+        transform: scale(1.05);
+      }
+
+      .blog-body {
+        padding: 1.4rem;
+      }
+
+      .blog-body .tag {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.4rem;
+      }
+
+      .blog-body h4 {
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-weight: 500;
+        line-height: 1.35;
+        margin-bottom: 0.4rem;
+      }
+
+      .blog-body p {
+        font-size: 0.92rem;
+        color: var(--text-mid);
+        line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== FINAL CTA ===== */
+      .final-cta {
+        background: linear-gradient(
+          135deg,
+          #1a1425 0%,
+          #251635 50%,
+          #1a1425 100%
+        );
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .final-cta::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at 30% 50%,
+            rgba(107, 70, 163, 0.3),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 50%,
+            var(--gold-glow-strong),
+            transparent 50%
+          );
+        opacity: 0.6;
+      }
+
+      .final-cta .heading {
+        color: var(--white);
+      }
+
+      .final-cta .subtext {
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      .final-cta-actions {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: #0f0a18;
+        color: rgba(255, 255, 255, 0.45);
+        padding: 3.5rem clamp(1.2rem, 4vw, 3rem) 1.5rem;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 2.5rem;
+        max-width: 1180px;
+        margin: 0 auto 2.5rem;
+      }
+
+      .footer-brand .logo {
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .footer-tagline {
+        font-size: 0.92rem;
+        line-height: 1.6;
+        max-width: 280px;
+      }
+
+      .footer-col h5 {
+        font-family: var(--serif);
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-col a {
+        display: block;
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.4);
+        padding: 0.3rem 0;
+        transition: color 0.25s;
+      }
+
+      .footer-col a:hover {
+        color: var(--gold);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 1.2rem;
+        max-width: 1180px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .footer-copy {
+        font-size: 0.8rem;
+      }
+
+      .footer-socials {
+        display: flex;
+        gap: 0.8rem;
+      }
+
+      .footer-socials a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.4);
+        transition: all 0.3s;
+      }
+
+      .footer-socials a:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ===== STICKY BAR ===== */
+      .sticky-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 8000;
+        background: rgba(254, 251, 244, 0.95);
+        backdrop-filter: blur(16px);
+        border-top: 1px solid var(--border-light);
+        padding: 0.7rem clamp(1rem, 3vw, 2.5rem);
+        display: flex;
+        justify-content: center;
+        gap: 0.7rem;
+        transform: translateY(100%);
+        transition: transform 0.4s var(--ease);
+      }
+
+      .sticky-bar.show {
+        transform: translateY(0);
+      }
+
+      .sticky-bar .btn {
+        padding: 0.6rem 1.4rem;
+        font-size: 0.88rem;
+      }
+
+      /* ===== WHATSAPP FLOAT ===== */
+      .wa-float {
+        position: fixed;
+        bottom: 70px;
+        right: 1.2rem;
+        z-index: 7000;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: var(--green-wa);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 18px rgba(37, 211, 102, 0.3);
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .wa-float:hover {
+        transform: scale(1.08);
+        box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+      }
+
+      .wa-float svg {
+        width: 26px;
+        height: 26px;
+        fill: white;
+      }
+
+      /* ===== CALL-OUT BANNER ===== */
+      .callout {
+        background: linear-gradient(
+          135deg,
+          var(--purple-deep),
+          var(--gold-dark),
+          var(--purple)
+        );
+        color: var(--white);
+        text-align: center;
+        padding: 2.5rem clamp(1.2rem, 4vw, 3rem);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .callout::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/><circle cx="100" cy="100" r="60" fill="none" stroke="white" stroke-width="0.5" opacity="0.08"/></svg>')
+          center/300px repeat;
+      }
+
+      .callout-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .callout h2 {
+        font-family: var(--serif);
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        font-weight: 400;
+        margin-bottom: 0.8rem;
+      }
+
+      .callout p {
+        font-size: 1rem;
+        opacity: 0.85;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      /* ===== ASTROLOGICAL SVG BACKGROUNDS — V4 ENHANCED ===== */
+      .astro-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .astro-bg svg {
+        position: absolute;
+      }
+
+      .astro-bg .zodiac-wheel {
+        width: 600px;
+        height: 600px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.07;
+        animation: astroSpin 120s linear infinite;
+      }
+
+      .astro-bg .constellation {
+        opacity: 0.06;
+      }
+
+      .astro-bg .constellation-tr {
+        width: 350px;
+        height: 350px;
+        top: 3%;
+        right: 2%;
+      }
+
+      .astro-bg .constellation-bl {
+        width: 300px;
+        height: 300px;
+        bottom: 3%;
+        left: 1%;
+        animation: astroSpin 90s linear infinite reverse;
+      }
+
+      /* Enhanced star field with gold + purple dots */
+      .star-field {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(
+            2px 2px at 8% 15%,
+            rgba(196, 160, 74, 0.12) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            1.5px 1.5px at 25% 60%,
+            rgba(107, 70, 163, 0.1) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            2px 2px at 50% 10%,
+            rgba(196, 160, 74, 0.1) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            1.5px 1.5px at 72% 75%,
+            rgba(107, 70, 163, 0.08) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            2.5px 2.5px at 88% 35%,
+            rgba(196, 160, 74, 0.1) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            1.5px 1.5px at 40% 88%,
+            rgba(107, 70, 163, 0.07) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            2px 2px at 15% 45%,
+            rgba(196, 160, 74, 0.09) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            1.5px 1.5px at 62% 30%,
+            rgba(107, 70, 163, 0.08) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            2.5px 2.5px at 82% 8%,
+            rgba(196, 160, 74, 0.11) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            2px 2px at 3% 70%,
+            rgba(107, 70, 163, 0.07) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            1.5px 1.5px at 35% 22%,
+            rgba(196, 160, 74, 0.08) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            2px 2px at 58% 82%,
+            rgba(107, 70, 163, 0.09) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            1.5px 1.5px at 92% 55%,
+            rgba(196, 160, 74, 0.07) 50%,
+            transparent 50%
+          ),
+          radial-gradient(
+            2px 2px at 18% 92%,
+            rgba(107, 70, 163, 0.06) 50%,
+            transparent 50%
+          );
+      }
+
+      /* Glowing orbs — gold + purple */
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+      }
+
+      .glow-orb.gold-1 {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(196, 160, 74, 0.15),
+          transparent 70%
+        );
+        top: -10%;
+        right: -5%;
+      }
+
+      .glow-orb.purple-1 {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(
+          circle,
+          rgba(107, 70, 163, 0.12),
+          transparent 70%
+        );
+        bottom: -10%;
+        left: -5%;
+      }
+
+      .glow-orb.gold-2 {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(196, 160, 74, 0.1),
+          transparent 70%
+        );
+        top: 20%;
+        left: -10%;
+      }
+
+      .glow-orb.purple-2 {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(
+          circle,
+          rgba(107, 70, 163, 0.1),
+          transparent 70%
+        );
+        top: -5%;
+        right: 20%;
+      }
+
+      .glow-orb.purple-3 {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(
+          circle,
+          rgba(107, 70, 163, 0.08),
+          transparent 70%
+        );
+        bottom: 10%;
+        right: -8%;
+      }
+
+      @keyframes astroSpin {
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      @keyframes floatOrb {
+        0%,
+        100% {
+          transform: translate(0, 0);
+        }
+
+        50% {
+          transform: translate(-15px, 10px);
+        }
+      }
+
+      .glow-orb.anim {
+        animation: floatOrb 8s ease-in-out infinite;
+      }
+
+      /* Ensure sections with astro-bg have relative positioning */
+      .hero,
+      .promise,
+      .usp,
+      .formats,
+      .paths,
+      .modules,
+      .remedies,
+      .calcs,
+      .lineage,
+      .faqs,
+      .blog {
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* ===== TAMIL LANGUAGE LAYOUT FIXES ===== */
+      [data-lang="ta"] .heading,
+      [data-lang="ta"] .h2 {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+      }
+
+      [data-lang="ta"] .subtext,
+      [data-lang="ta"] .st {
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+
+      [data-lang="ta"] .usp-card,
+      [data-lang="ta"] .mod-card,
+      [data-lang="ta"] .format-card,
+      [data-lang="ta"] .path-card,
+      [data-lang="ta"] .shop-card,
+      [data-lang="ta"] .calc-card,
+      [data-lang="ta"] .blog-card,
+      [data-lang="ta"] .astro-card,
+      [data-lang="ta"] .testi-card,
+      [data-lang="ta"] .lineage-item,
+      [data-lang="ta"] .expect-item,
+      [data-lang="ta"] .faq-item,
+      [data-lang="ta"] .remedy-card {
+        min-height: auto;
+        overflow: visible;
+      }
+
+      [data-lang="ta"] .usp-card p,
+      [data-lang="ta"] .mod-body .desc,
+      [data-lang="ta"] .format-body p,
+      [data-lang="ta"] .prob-item p,
+      [data-lang="ta"] .path-note p,
+      [data-lang="ta"] .remedy-content > p,
+      [data-lang="ta"] .remedy-list li,
+      [data-lang="ta"] .blog-body p,
+      [data-lang="ta"] .testi-card blockquote,
+      [data-lang="ta"] .faq-a p,
+      [data-lang="ta"] .step-body p,
+      [data-lang="ta"] .step-body .micro {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        line-height: 1.8;
+      }
+
+      [data-lang="ta"] .chip,
+      [data-lang="ta"] .btn,
+      [data-lang="ta"] .header-cta,
+      [data-lang="ta"] .mod-link,
+      [data-lang="ta"] .mod-tag,
+      [data-lang="ta"] .lang-btn {
+        white-space: normal;
+        word-break: break-word;
+      }
+
+      [data-lang="ta"] .hero h1 {
+        font-size: clamp(1.8rem, 4vw, 3.2rem);
+        line-height: 1.25;
+      }
+
+      [data-lang="ta"] .hero-sub {
+        line-height: 1.85;
+      }
+
+      [data-lang="ta"] .hero-value {
+        line-height: 1.8;
+      }
+
+      [data-lang="ta"] .hero-trust span {
+        font-size: 0.78rem;
+      }
+
+      [data-lang="ta"] .format-features li,
+      [data-lang="ta"] .path-features li {
+        line-height: 1.6;
+        padding: 0.15rem 0;
+      }
+
+      [data-lang="ta"] .promise-chips {
+        gap: 0.5rem;
+      }
+
+      [data-lang="ta"] .chip {
+        padding: 0.4rem 1rem;
+        font-size: 0.82rem;
+      }
+
+      [data-lang="ta"] .ethos-point {
+        font-size: 0.88rem;
+      }
+
+      [data-lang="ta"] .faq-q {
+        font-size: 0.92rem;
+      }
+
+      [data-lang="ta"] .faq-a p {
+        line-height: 1.8;
+      }
+
+      [data-lang="ta"] .nav-desktop a,
+      [data-lang="ta"] nav.desktop a {
+        font-size: 0.78rem;
+      }
+
+      [data-lang="ta"] .footer-tagline {
+        line-height: 1.7;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- LOADER -->
+    <div id="loader">
+      <div class="loader-ring"></div>
+      <span class="loader-brand">Luckymantra</span>
+    </div>
+
+    <!-- LANGUAGE BAR -->
+    <div class="lang-bar show" id="langBar">
+      <span class="lang-label" data-en="Language:" data-ta="மொழி:"
+        >Language:</span
+      >
+      <button class="lang-btn active" onclick="setLang('en')">English</button>
+      <button class="lang-btn" onclick="setLang('ta')">தமிழ்</button>
+    </div>
+
+    <!-- HEADER -->
+    <header id="hdr">
+      <a href="#hero" class="logo">
+        <div class="logo-mark"></div>
+        Luckymantra
+      </a>
+      <div class="nav-spacer"></div>
+      <nav class="desktop">
+        <a href="#modules" data-en="At Your Mobile" data-ta="உங்கள் மொபைலில்"
+          >At Your Mobile</a
+        >
+        <a href="#astros" data-en="Sessions" data-ta="அமர்வுகள்">Sessions</a>
+        <a href="#modules" data-en="Matching" data-ta="பொருத்தம்">Matching</a>
+        <a href="#calcs" data-en="Calculators" data-ta="கணிப்பான்கள்"
+          >Calculators</a
+        >
+        <a href="#shop" data-en="Accessories" data-ta="பொருட்கள்"
+          >Accessories</a
+        >
+      </nav>
+      <a
+        href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20want%20my%20personalized%20horoscope."
+        target="_blank"
+        class="header-cta"
+        data-en="Get Horoscope"
+        data-ta="ஜாதகம் பெறுக"
+        >Get Horoscope</a
+      >
+      <button class="hamburger" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mnav">
+      <button class="menu-close" onclick="closeM()">✕</button>
+      <a
+        href="#modules"
+        onclick="closeM()"
+        data-en="At Your Mobile"
+        data-ta="உங்கள் மொபைலில்"
+        >At Your Mobile</a
+      >
+      <a
+        href="#astros"
+        onclick="closeM()"
+        data-en="Sessions"
+        data-ta="அமர்வுகள்"
+        >Sessions</a
+      >
+      <a
+        href="#modules"
+        onclick="closeM()"
+        data-en="Matching"
+        data-ta="பொருத்தம்"
+        >Matching</a
+      >
+      <a
+        href="#calcs"
+        onclick="closeM()"
+        data-en="Calculators"
+        data-ta="கணிப்பான்கள்"
+        >Calculators</a
+      >
+      <a
+        href="#shop"
+        onclick="closeM()"
+        data-en="Accessories"
+        data-ta="பொருட்கள்"
+        >Accessories</a
+      >
+      <div class="sep"></div>
+      <a
+        href="#remedies"
+        onclick="closeM()"
+        data-en="Pariharam"
+        data-ta="பரிகாரம்"
+        >Pariharam</a
+      >
+      <a href="#blog" onclick="closeM()" data-en="Blog" data-ta="வலைப்பதிவு"
+        >Blog</a
+      >
+      <a
+        href="#faqs"
+        onclick="closeM()"
+        data-en="FAQs"
+        data-ta="அடிக்கடி கேட்கப்படும் கேள்விகள்"
+        >FAQs</a
+      >
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <!-- Astrological Vector Backgrounds -->
+      <div class="astro-bg">
+        <div class="star-field"></div>
+        <svg
+          class="zodiac-wheel"
+          viewBox="0 0 500 500"
+          fill="none"
+          stroke="#C4A04A"
+        >
+          <circle cx="250" cy="250" r="240" stroke-width=".5" />
+          <circle cx="250" cy="250" r="200" stroke-width=".4" />
+          <circle cx="250" cy="250" r="160" stroke-width=".3" />
+          <circle cx="250" cy="250" r="120" stroke-width=".25" />
+          <circle cx="250" cy="250" r="80" stroke-width=".2" />
+          <line x1="250" y1="10" x2="250" y2="490" stroke-width=".3" />
+          <line x1="10" y1="250" x2="490" y2="250" stroke-width=".3" />
+          <line x1="73" y1="73" x2="427" y2="427" stroke-width=".25" />
+          <line x1="427" y1="73" x2="73" y2="427" stroke-width=".25" />
+          <polygon
+            points="250,15 290,210 485,250 290,290 250,485 210,290 15,250 210,210"
+            stroke-width=".4"
+            fill="none"
+          />
+          <line x1="250" y1="50" x2="400" y2="130" stroke-width=".2" />
+          <line x1="250" y1="50" x2="100" y2="130" stroke-width=".2" />
+          <line x1="400" y1="370" x2="250" y2="450" stroke-width=".2" />
+          <line x1="100" y1="370" x2="250" y2="450" stroke-width=".2" />
+          <!-- Zodiac segment lines -->
+          <line x1="250" y1="10" x2="388" y2="46" stroke-width=".15" />
+          <line x1="388" y1="46" x2="454" y2="180" stroke-width=".15" />
+          <line x1="454" y1="180" x2="454" y2="320" stroke-width=".15" />
+          <line x1="454" y1="320" x2="388" y2="454" stroke-width=".15" />
+          <line x1="388" y1="454" x2="250" y2="490" stroke-width=".15" />
+          <line x1="250" y1="490" x2="112" y2="454" stroke-width=".15" />
+          <line x1="112" y1="454" x2="46" y2="320" stroke-width=".15" />
+          <line x1="46" y1="320" x2="46" y2="180" stroke-width=".15" />
+          <line x1="46" y1="180" x2="112" y2="46" stroke-width=".15" />
+          <line x1="112" y1="46" x2="250" y2="10" stroke-width=".15" />
+        </svg>
+        <svg
+          class="constellation constellation-tr"
+          viewBox="0 0 300 300"
+          fill="none"
+          stroke="#C4A04A"
+          stroke-width=".5"
+        >
+          <circle cx="40" cy="50" r="2.5" fill="#C4A04A" opacity=".3" />
+          <circle cx="100" cy="25" r="2" fill="#6B46A3" opacity=".3" />
+          <circle cx="160" cy="70" r="2.5" fill="#C4A04A" opacity=".3" />
+          <circle cx="220" cy="40" r="1.5" fill="#C4A04A" opacity=".2" />
+          <circle cx="80" cy="120" r="2" fill="#6B46A3" opacity=".3" />
+          <circle cx="190" cy="150" r="2.5" fill="#C4A04A" opacity=".3" />
+          <circle cx="130" cy="200" r="1.5" fill="#C4A04A" opacity=".2" />
+          <circle cx="240" cy="180" r="2" fill="#6B46A3" opacity=".3" />
+          <circle cx="260" cy="100" r="1.5" fill="#C4A04A" opacity=".2" />
+          <circle cx="50" cy="220" r="2" fill="#C4A04A" opacity=".2" />
+          <line x1="40" y1="50" x2="100" y2="25" opacity=".15" />
+          <line x1="100" y1="25" x2="160" y2="70" opacity=".15" />
+          <line x1="160" y1="70" x2="220" y2="40" opacity=".12" />
+          <line x1="80" y1="120" x2="160" y2="70" opacity=".12" />
+          <line x1="190" y1="150" x2="160" y2="70" opacity=".1" />
+          <line x1="130" y1="200" x2="190" y2="150" opacity=".1" />
+          <line x1="240" y1="180" x2="190" y2="150" opacity=".1" />
+          <line x1="260" y1="100" x2="220" y2="40" opacity=".08" />
+          <line x1="50" y1="220" x2="80" y2="120" opacity=".08" />
+          <line x1="50" y1="220" x2="130" y2="200" opacity=".08" />
+        </svg>
+        <svg
+          class="constellation constellation-bl"
+          viewBox="0 0 260 260"
+          fill="none"
+          stroke="#6B46A3"
+          stroke-width=".5"
+        >
+          <circle cx="30" cy="30" r="2" fill="#6B46A3" opacity=".3" />
+          <circle cx="90" cy="60" r="2.5" fill="#C4A04A" opacity=".3" />
+          <circle cx="150" cy="30" r="1.5" fill="#C4A04A" opacity=".2" />
+          <circle cx="60" cy="130" r="2" fill="#6B46A3" opacity=".3" />
+          <circle cx="130" cy="110" r="2.5" fill="#C4A04A" opacity=".3" />
+          <circle cx="200" cy="90" r="1.5" fill="#C4A04A" opacity=".2" />
+          <circle cx="100" cy="200" r="2" fill="#6B46A3" opacity=".3" />
+          <circle cx="180" cy="180" r="2" fill="#C4A04A" opacity=".2" />
+          <line x1="30" y1="30" x2="90" y2="60" opacity=".12" />
+          <line x1="90" y1="60" x2="150" y2="30" opacity=".1" />
+          <line x1="90" y1="60" x2="130" y2="110" opacity=".12" />
+          <line x1="130" y1="110" x2="200" y2="90" opacity=".1" />
+          <line x1="60" y1="130" x2="130" y2="110" opacity=".1" />
+          <line x1="100" y1="200" x2="130" y2="110" opacity=".08" />
+          <line x1="180" y1="180" x2="130" y2="110" opacity=".08" />
+          <line x1="100" y1="200" x2="180" y2="180" opacity=".06" />
+        </svg>
+      </div>
+      <div class="hero-bg">
+        <div class="hero-orb a"></div>
+        <div class="hero-orb b"></div>
+        <div class="hero-orb c"></div>
+      </div>
+      <svg class="hero-mandala" viewBox="0 0 500 500">
+        <circle
+          cx="250"
+          cy="250"
+          r="240"
+          fill="none"
+          stroke="#C4A04A"
+          stroke-width=".5"
+        />
+        <circle
+          cx="250"
+          cy="250"
+          r="190"
+          fill="none"
+          stroke="#C4A04A"
+          stroke-width=".4"
+        />
+        <circle
+          cx="250"
+          cy="250"
+          r="140"
+          fill="none"
+          stroke="#C4A04A"
+          stroke-width=".3"
+        />
+        <circle
+          cx="250"
+          cy="250"
+          r="90"
+          fill="none"
+          stroke="#C4A04A"
+          stroke-width=".3"
+        />
+        <line
+          x1="250"
+          y1="10"
+          x2="250"
+          y2="490"
+          stroke="#C4A04A"
+          stroke-width=".3"
+        />
+        <line
+          x1="10"
+          y1="250"
+          x2="490"
+          y2="250"
+          stroke="#C4A04A"
+          stroke-width=".3"
+        />
+        <line
+          x1="80"
+          y1="80"
+          x2="420"
+          y2="420"
+          stroke="#C4A04A"
+          stroke-width=".25"
+        />
+        <line
+          x1="420"
+          y1="80"
+          x2="80"
+          y2="420"
+          stroke="#C4A04A"
+          stroke-width=".25"
+        />
+        <polygon
+          points="250,20 290,210 480,250 290,290 250,480 210,290 20,250 210,210"
+          fill="none"
+          stroke="#C4A04A"
+          stroke-width=".4"
+        />
+      </svg>
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <span class="dot"></span
+          ><span
+            data-en="Luck at Every Step"
+            data-ta="ஒவ்வொரு அடியிலும் அதிர்ஷ்டம்"
+            >Luck at Every Step</span
+          >
+        </div>
+        <h1>
+          <span data-en="Unlock Your" data-ta="உங்கள்">Unlock Your</span>
+          <span class="gold" data-en="Luck" data-ta="அதிர்ஷ்டத்தை">Luck</span
+          >,<br /><span data-en="One" data-ta="ஒரு">One</span>
+          <em data-en="Mantra" data-ta="மந்திரத்தால்">Mantra</em>
+          <span data-en="at a Time" data-ta="திறக்கவும்">at a Time</span>
+        </h1>
+        <p
+          class="hero-sub"
+          data-en="Your destiny, decoded with the wisdom of the Brihat Parāśara Hora Śāstra and the clarity of modern design."
+          data-ta="பிருகத் பராசர ஹோரா சாஸ்திரத்தின் ஞானத்துடனும், நவீன வடிவமைப்பின் தெளிவுடனும் உங்கள் விதி விளக்கப்படுகிறது."
+        >
+          Your destiny, decoded with the wisdom of the Brihat Parāśara Hora
+          Śāstra and the clarity of modern design.
+        </p>
+        <p
+          class="hero-value"
+          data-en="Instant, personalized horoscopes in PDF, AI video, or audio — plus live sessions, remedies, and accessories matched to your chart and life stage."
+          data-ta="PDF, AI வீடியோ அல்லது ஆடியோவில் உடனடி, தனிப்பயனாக்கப்பட்ட ஜாதகங்கள் — உங்கள் ஜாதகம் மற்றும் வாழ்க்கை நிலைக்கு ஏற்ற நேரடி அமர்வுகள், பரிகாரங்கள் மற்றும் பொருட்கள்."
+        >
+          Instant, personalized horoscopes in PDF, AI video, or audio — plus
+          live sessions, remedies, and accessories matched to your chart and
+          life stage.
+        </p>
+        <div class="hero-ctas">
+          <a
+            href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20want%20my%20personalized%20horoscope."
+            target="_blank"
+            class="btn btn-gold"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" /></svg
+            ><span data-en="Get My Horoscope" data-ta="என் ஜாதகம் பெறுக"
+              >Get My Horoscope</span
+            ></a
+          >
+          <a
+            href="https://wa.me/918778633417?text=Hi%20Luckymantra!"
+            target="_blank"
+            class="btn btn-outline"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              style="width: 18px; height: 18px"
+            >
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+              />
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"
+              /></svg
+            ><span data-en="Chat on WhatsApp" data-ta="WhatsApp இல் அரட்டை"
+              >Chat on WhatsApp</span
+            ></a
+          >
+        </div>
+        <div class="hero-trust">
+          <span
+            ><span class="chk">✓</span
+            ><span
+              data-en="Based on BPHS & Classical Texts"
+              data-ta="BPHS மற்றும் பாரம்பரிய நூல்கள்"
+              >Based on BPHS & Classical Texts</span
+            ></span
+          >
+          <span
+            ><span class="chk">✓</span
+            ><span
+              data-en="Clear, Human Explanations"
+              data-ta="தெளிவான விளக்கங்கள்"
+              >Clear, Human Explanations</span
+            ></span
+          >
+          <span
+            ><span class="chk">✓</span
+            ><span data-en="Private & Secure" data-ta="தனிப்பட்ட & பாதுகாப்பான"
+              >Private & Secure</span
+            ></span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <span>✦ Personalized Horoscopes</span><span>✦ AI Video Readings</span
+        ><span>✦ Expert Astrologers</span><span>✦ Kundali Matching</span
+        ><span>✦ Energized Gemstones</span><span>✦ Sacred Yantras</span
+        ><span>✦ Pariharam Remedies</span><span>✦ Daily Predictions</span
+        ><span>✦ Personalized Horoscopes</span><span>✦ AI Video Readings</span
+        ><span>✦ Expert Astrologers</span><span>✦ Kundali Matching</span
+        ><span>✦ Energized Gemstones</span><span>✦ Sacred Yantras</span
+        ><span>✦ Pariharam Remedies</span><span>✦ Daily Predictions</span>
+      </div>
+    </div>
+
+    <!-- PROBLEM-PROMISE -->
+    <section class="promise" id="promise">
+      <div class="astro-bg">
+        <div class="star-field"></div>
+        <div class="glow-orb purple-1 anim"></div>
+        <div class="glow-orb gold-1 anim" style="animation-delay: -3s"></div>
+      </div>
+      <div class="promise-bg"></div>
+      <div class="wrap">
+        <div class="promise-inner rv">
+          <span
+            class="label"
+            data-en="Your Questions, Our Clarity"
+            data-ta="உங்கள் கேள்விகள், எங்கள் தெளிவு"
+            >Your Questions, Our Clarity</span
+          >
+          <h2
+            class="heading"
+            data-en="You bring the questions. We bring the clarity."
+            data-ta="நீங்கள் கேள்விகளைக் கொண்டு வாருங்கள். நாங்கள் தெளிவைத் தருகிறோம்."
+          >
+            You bring the questions.<br />We bring the
+            <span class="gold">clarity</span>.
+          </h2>
+          <p
+            class="subtext center"
+            data-en="Whether it's career crossroads, relationship doubts, health worries, or money blocks — our readings blend Vedic wisdom with practical next steps."
+            data-ta="தொழில் சிக்கல்கள், உறவு சந்தேகங்கள், உடல்நலக் கவலைகள், அல்லது பண தடைகள் — எங்கள் வாசிப்புகள் வேத ஞானத்தை நடைமுறை அடுத்த படிகளுடன் கலக்கின்றன."
+          >
+            Whether it's career crossroads, relationship doubts, health worries,
+            or money blocks — our readings blend Vedic wisdom with practical
+            next steps.
+          </p>
+          <div class="promise-chips">
+            <span class="chip" data-en="Career" data-ta="தொழில்">Career</span>
+            <span
+              class="chip"
+              data-en="Love / Marriage"
+              data-ta="காதல் / திருமணம்"
+              >Love / Marriage</span
+            >
+            <span
+              class="chip"
+              data-en="Health / Peace"
+              data-ta="ஆரோக்கியம் / அமைதி"
+              >Health / Peace</span
+            >
+            <span
+              class="chip outline"
+              data-en="YOU NAME IT → WE SOLVE IT"
+              data-ta="நீங்கள் சொல்லுங்கள் → நாங்கள் தீர்ப்போம்"
+              >YOU NAME IT → WE SOLVE IT</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMAGE BANNER -->
+    <div class="img-banner">
+      <img
+        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1400&h=500&fit=crop&crop=center"
+        alt="Spiritual atmosphere"
+        loading="lazy"
+      />
+      <div class="img-banner-overlay">
+        <div class="img-banner-text">
+          <span
+            class="label"
+            data-en="Ancient Wisdom, Modern Delivery"
+            data-ta="பண்டைய ஞானம், நவீன வழங்கல்"
+            >Ancient Wisdom, Modern Delivery</span
+          >
+          <h2
+            data-en="Your destiny is written in the stars. Let us help you read it."
+            data-ta="உங்கள் விதி நட்சத்திரங்களில் எழுதப்பட்டுள்ளது. அதைப் படிக்க நாங்கள் உதவுகிறோம்."
+          >
+            Your destiny is written in the stars. Let us help you read it.
+          </h2>
+          <p
+            data-en="Rooted in Brihat Parāśara Hora Śāstra, Brihat Jātaka, and Phaladīpikā — decoded for modern life."
+            data-ta="பிருகத் பராசர ஹோரா சாஸ்திரம், பிருகத் ஜாதகம், பலதீபிகா ஆகியவற்றில் வேர்கொண்டது."
+          >
+            Rooted in Brihat Parāśara Hora Śāstra, Brihat Jātaka, and
+            Phaladīpikā — decoded for modern life.
+          </p>
+          <a
+            href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20want%20to%20start%20my%20journey!"
+            target="_blank"
+            class="btn btn-gold"
+            data-en="Start My Journey"
+            data-ta="என் பயணத்தைத் தொடங்கு"
+            ><span data-en="Start My Journey" data-ta="என் பயணத்தைத் தொடங்கு"
+              >Start My Journey</span
+            ></a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- USP PILLARS -->
+    <section class="usp" id="usp">
+      <div class="astro-bg">
+        <div class="star-field"></div>
+        <svg
+          class="constellation constellation-bl"
+          viewBox="0 0 260 260"
+          fill="none"
+          stroke="#6B46A3"
+          stroke-width=".5"
+        >
+          <circle cx="50" cy="40" r="2" fill="#C4A04A" opacity=".2" />
+          <circle cx="120" cy="70" r="2.5" fill="#6B46A3" opacity=".3" />
+          <circle cx="200" cy="50" r="1.5" fill="#C4A04A" opacity=".15" />
+          <circle cx="80" cy="150" r="2" fill="#C4A04A" opacity=".2" />
+          <circle cx="170" cy="130" r="2.5" fill="#C4A04A" opacity=".25" />
+          <line x1="50" y1="40" x2="120" y2="70" opacity=".1" />
+          <line x1="120" y1="70" x2="200" y2="50" opacity=".08" />
+          <line x1="80" y1="150" x2="120" y2="70" opacity=".08" />
+          <line x1="170" y1="130" x2="120" y2="70" opacity=".08" />
+        </svg>
+      </div>
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span
+            class="label"
+            data-en="Why Luckymantra"
+            data-ta="ஏன் Luckymantra"
+            >Why Luckymantra</span
+          >
+          <h2
+            class="heading"
+            data-en="Rooted in Scripture. Built for Today."
+            data-ta="வேதங்களில் வேர்கொண்டது. இன்றைக்காக உருவாக்கப்பட்டது."
+          >
+            Rooted in Scripture. Built for <span class="gold">Today</span>.
+          </h2>
+          <p
+            class="subtext center"
+            data-en="Our approach honors classical Vedic astrology while translating them into simple, modern insights you can actually use."
+            data-ta="எங்கள் அணுகுமுறை பாரம்பரிய வேத ஜோதிடத்தை மதிக்கிறது, அதே நேரத்தில் நீங்கள் பயன்படுத்தக்கூடிய எளிய, நவீன நுண்ணறிவுகளாக மொழிபெயர்க்கிறது."
+          >
+            Our approach honors classical Vedic astrology while translating them
+            into simple, modern insights you can actually use.
+          </p>
+        </div>
+        <div class="usp-grid">
+          <div class="usp-card rv">
+            <div class="usp-img">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop"
+                alt="Personalized"
+                loading="lazy"
+              />
+            </div>
+            <h3 data-en="Personalized" data-ta="தனிப்பயனாக்கப்பட்ட">
+              Personalized
+            </h3>
+            <p
+              data-en="Your exact birth time & place → your unique chart. No cookie-cutter readings."
+              data-ta="உங்கள் சரியான பிறந்த நேரம் & இடம் → உங்கள் தனிப்பட்ட ஜாதகம்."
+            >
+              Your exact birth time & place → your unique chart. No
+              cookie-cutter readings.
+            </p>
+          </div>
+          <div class="usp-card rv">
+            <div class="usp-img">
+              <img
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=200&fit=crop"
+                alt="Modern delivery"
+                loading="lazy"
+              />
+            </div>
+            <h3 data-en="Modern" data-ta="நவீன">Modern</h3>
+            <p
+              data-en="Choose PDF, AI video, or audio — delivered instantly to your phone."
+              data-ta="PDF, AI வீடியோ அல்லது ஆடியோ தேர்வு செய்யுங்கள் — உடனடியாக வழங்கப்படும்."
+            >
+              Choose PDF, AI video, or audio — delivered instantly to your
+              phone.
+            </p>
+          </div>
+          <div class="usp-card rv">
+            <div class="usp-img">
+              <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=200&fit=crop"
+                alt="Actionable"
+                loading="lazy"
+              />
+            </div>
+            <h3 data-en="Actionable" data-ta="செயல்படக்கூடிய">Actionable</h3>
+            <p
+              data-en="Clear remedies (Pariharam), lucky days, mantras, and mindful steps you can follow today."
+              data-ta="தெளிவான பரிகாரங்கள், அதிர்ஷ்ட நாட்கள், மந்திரங்கள் — இன்றே பின்பற்றுங்கள்."
+            >
+              Clear remedies (Pariharam), lucky days, mantras, and mindful steps
+              you can follow today.
+            </p>
+          </div>
+          <div class="usp-card rv">
+            <div class="usp-img">
+              <img
+                src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=400&h=200&fit=crop"
+                alt="Ethical"
+                loading="lazy"
+              />
+            </div>
+            <h3 data-en="Ethical" data-ta="நெறிமுறை">Ethical</h3>
+            <p
+              data-en='Guidance with humility, never fear. "Upadeśa with responsibility."'
+              data-ta="பணிவுடன் வழிகாட்டுதல், பயமின்றி. பொறுப்புடன் உபதேசம்."
+            >
+              Guidance with humility, never fear. "Upadeśa with responsibility."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATS SECTION (NEW) -->
+    <section class="formats" id="formats">
+      <div class="astro-bg">
+        <div class="star-field"></div>
+        <svg
+          class="constellation constellation-tr"
+          viewBox="0 0 300 300"
+          fill="none"
+          stroke="#C4A04A"
+          stroke-width=".4"
+        >
+          <circle cx="60" cy="80" r="2" fill="#C4A04A" opacity=".2" />
+          <circle cx="140" cy="40" r="1.5" fill="#C4A04A" opacity=".15" />
+          <circle cx="220" cy="100" r="2.5" fill="#6B46A3" opacity=".3" />
+          <circle cx="180" cy="200" r="2" fill="#C4A04A" opacity=".2" />
+          <circle cx="100" cy="160" r="1.5" fill="#C4A04A" opacity=".15" />
+          <line x1="60" y1="80" x2="140" y2="40" opacity=".1" />
+          <line x1="140" y1="40" x2="220" y2="100" opacity=".08" />
+          <line x1="100" y1="160" x2="140" y2="40" opacity=".06" />
+          <line x1="180" y1="200" x2="220" y2="100" opacity=".06" />
+        </svg>
+      </div>
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span
+            class="label"
+            data-en="Your Horoscope, Your Way"
+            data-ta="உங்கள் ஜாதகம், உங்கள் வழி"
+            >Your Horoscope, Your Way</span
+          >
+          <h2
+            class="heading"
+            data-en="Three Formats. One Powerful Reading."
+            data-ta="மூன்று வடிவங்கள். ஒரு சக்திவாய்ந்த வாசிப்பு."
+          >
+            Three Formats. One Powerful <span class="gold">Reading</span>.
+          </h2>
+          <p
+            class="subtext center"
+            data-en="No waiting. No confusion. Get your detailed horoscope instantly in the format you prefer."
+            data-ta="காத்திருப்பு இல்லை. குழப்பம் இல்லை. நீங்கள் விரும்பும் வடிவத்தில் உடனடியாகப் பெறுங்கள்."
+          >
+            No waiting. No confusion. Get your detailed horoscope instantly in
+            the format you prefer.
+          </p>
+        </div>
+        <div class="formats-grid">
+          <div class="format-card rv">
+            <div class="format-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=500&h=300&fit=crop"
+                alt="PDF Report"
+                loading="lazy"
+              />
+            </div>
+            <div class="format-body">
+              <h3 data-en="PDF Report" data-ta="PDF அறிக்கை">PDF Report</h3>
+              <p
+                data-en="Beautifully designed, in-depth insights you can read, save, and share anytime."
+                data-ta="அழகாக வடிவமைக்கப்பட்ட, ஆழமான நுண்ணறிவுகள் — எப்போதும் படிக்கலாம், சேமிக்கலாம், பகிரலாம்."
+              >
+                Beautifully designed, in-depth insights you can read, save, and
+                share anytime.
+              </p>
+              <ul class="format-features">
+                <li
+                  data-en="Detailed birth chart analysis"
+                  data-ta="விரிவான ஜாதக பகுப்பாய்வு"
+                >
+                  Detailed birth chart analysis
+                </li>
+                <li
+                  data-en="Shareable with family"
+                  data-ta="குடும்பத்துடன் பகிரலாம்"
+                >
+                  Shareable with family
+                </li>
+                <li data-en="Instant delivery" data-ta="உடனடி வழங்கல்">
+                  Instant delivery
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="format-card rv">
+            <div class="format-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=300&fit=crop"
+                alt="AI Video"
+                loading="lazy"
+              />
+            </div>
+            <div class="format-body">
+              <h3 data-en="AI Video Horoscope" data-ta="AI வீடியோ ஜாதகம்">
+                AI Video Horoscope
+              </h3>
+              <p
+                data-en="Watch your personalized reading like a friendly astrologer talking just to you."
+                data-ta="ஒரு நட்பான ஜோதிடர் உங்களிடம் பேசுவது போல் உங்கள் தனிப்பயனாக்கப்பட்ட வாசிப்பைப் பாருங்கள்."
+              >
+                Watch your personalized reading like a friendly astrologer
+                talking just to you.
+              </p>
+              <ul class="format-features">
+                <li
+                  data-en="Engaging visual format"
+                  data-ta="ஈர்க்கும் காட்சி வடிவம்"
+                >
+                  Engaging visual format
+                </li>
+                <li
+                  data-en="Easy to understand"
+                  data-ta="எளிதில் புரிந்துகொள்ளலாம்"
+                >
+                  Easy to understand
+                </li>
+                <li data-en="Modern & interactive" data-ta="நவீன & ஊடாடும்">
+                  Modern & interactive
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="format-card rv">
+            <div class="format-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=500&h=300&fit=crop"
+                alt="Audio Reading"
+                loading="lazy"
+              />
+            </div>
+            <div class="format-body">
+              <h3 data-en="Audio Reading" data-ta="ஆடியோ வாசிப்பு">
+                Audio Reading
+              </h3>
+              <p
+                data-en="Listen on the go, perfect for your morning routine or commute."
+                data-ta="பயணத்தின் போது கேளுங்கள், உங்கள் காலை வழக்கத்திற்கு ஏற்றது."
+              >
+                Listen on the go, perfect for your morning routine or commute.
+              </p>
+              <ul class="format-features">
+                <li
+                  data-en="Hands-free guidance"
+                  data-ta="கைகள் இல்லாத வழிகாட்டுதல்"
+                >
+                  Hands-free guidance
+                </li>
+                <li
+                  data-en="Perfect for commuters"
+                  data-ta="பயணிகளுக்கு ஏற்றது"
+                >
+                  Perfect for commuters
+                </li>
+                <li
+                  data-en="Replay anytime"
+                  data-ta="எப்போதும் மீண்டும் கேட்கலாம்"
+                >
+                  Replay anytime
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALLOUT BANNER -->
+    <div class="callout">
+      <div class="callout-inner rv">
+        <h2
+          data-en="🌟 Special Offer: Get your first horoscope reading at 50% off!"
+          data-ta="🌟 சிறப்பு சலுகை: உங்கள் முதல் ஜாதக வாசிப்பை 50% தள்ளுபடியில் பெறுங்கள்!"
+        >
+          🌟 Special Offer: Get your first horoscope reading at 50% off!
+        </h2>
+        <p
+          data-en="Limited time offer for new users. Use code LUCKY50 at checkout."
+          data-ta="புதிய பயனர்களுக்கான வரையறுக்கப்பட்ட நேர சலுகை. LUCKY50 குறியீட்டைப் பயன்படுத்தவும்."
+        >
+          Limited time offer for new users. Use code LUCKY50 at checkout.
+        </p>
+        <a
+          href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20want%20my%20personalized%20horoscope."
+          target="_blank"
+          class="btn btn-white"
+          data-en="Claim My Offer"
+          data-ta="என் சலுகையைப் பெறுக"
+          ><span data-en="Claim My Offer" data-ta="என் சலுகையைப் பெறுக"
+            >Claim My Offer</span
+          ></a
+        >
+      </div>
+    </div>
+
+    <!-- TWO PATHS -->
+    <section class="paths" id="paths">
+      <div class="astro-bg">
+        <div class="star-field"></div>
+        <div class="glow-orb purple-2 anim"></div>
+        <div class="glow-orb gold-2 anim" style="animation-delay: -4s"></div>
+        <svg
+          class="zodiac-wheel"
+          viewBox="0 0 500 500"
+          fill="none"
+          stroke="#6B46A3"
+          style="opacity: 0.035"
+        >
+          <circle cx="250" cy="250" r="240" stroke-width=".6" />
+          <circle cx="250" cy="250" r="180" stroke-width=".4" />
+          <circle cx="250" cy="250" r="120" stroke-width=".3" />
+          <polygon
+            points="250,20 290,210 480,250 290,290 250,480 210,290 20,250 210,210"
+            stroke-width=".4"
+            fill="none"
+          />
+          <line x1="250" y1="10" x2="250" y2="490" stroke-width=".2" />
+          <line x1="10" y1="250" x2="490" y2="250" stroke-width=".2" />
+        </svg>
+      </div>
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span
+            class="label"
+            data-en="How It Works"
+            data-ta="இது எப்படி வேலை செய்கிறது"
+            >How It Works</span
+          >
+          <h2
+            class="heading"
+            data-en="Two ways to unlock your luck"
+            data-ta="உங்கள் அதிர்ஷ்டத்தைத் திறக்க இரண்டு வழிகள்"
+          >
+            Two ways to unlock your <span class="gold">luck</span>
+          </h2>
+        </div>
+        <div class="paths-grid">
+          <div class="path-card rv">
+            <h3
+              data-en="Path A — Your Personalized Horoscope"
+              data-ta="பாதை A — உங்கள் தனிப்பயனாக்கப்பட்ட ஜாதகம்"
+            >
+              Path A — Your Personalized Horoscope
+            </h3>
+            <p
+              class="path-sub"
+              data-en="Complete astrological guidance tailored to your birth chart"
+              data-ta="உங்கள் ஜாதகத்திற்கு ஏற்ற முழுமையான ஜோதிட வழிகாட்டுதல்"
+            >
+              Complete astrological guidance tailored to your birth chart
+            </p>
+            <div class="steps-flow">
+              <div class="step-row">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                  <h4 data-en="Share basics" data-ta="அடிப்படைகளைப் பகிரவும்">
+                    Share basics
+                  </h4>
+                  <p
+                    data-en="Date, time, and place of birth."
+                    data-ta="பிறந்த தேதி, நேரம், இடம்."
+                  >
+                    Date, time, and place of birth.
+                  </p>
+                  <span
+                    class="micro"
+                    data-en="Don't know your exact time? We guide you through Prashna Shastra to approximate."
+                    data-ta="சரியான நேரம் தெரியவில்லையா? பிரச்ன சாஸ்திரம் மூலம் நாங்கள் வழிகாட்டுகிறோம்."
+                    >Don't know your exact time? We guide you through Prashna
+                    Shastra to approximate.</span
+                  >
+                </div>
+              </div>
+              <div class="step-row">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                  <h4
+                    data-en="Pick your format"
+                    data-ta="உங்கள் வடிவத்தைத் தேர்வு செய்யுங்கள்"
+                  >
+                    Pick your format
+                  </h4>
+                  <p
+                    data-en="Beautifully designed PDF, interactive AI video, or audio reading."
+                    data-ta="அழகாக வடிவமைக்கப்பட்ட PDF, ஊடாடும் AI வீடியோ, அல்லது ஆடியோ."
+                  >
+                    Beautifully designed <strong>PDF</strong>, interactive
+                    <strong>AI video</strong>, or
+                    <strong>audio reading</strong>.
+                  </p>
+                </div>
+              </div>
+              <div class="step-row">
+                <div class="step-num">3</div>
+                <div class="step-body">
+                  <h4
+                    data-en="Receive insights"
+                    data-ta="நுண்ணறிவுகளைப் பெறுங்கள்"
+                  >
+                    Receive insights
+                  </h4>
+                  <p
+                    data-en="Focus areas, dos & don'ts, and your Shubha Kāla (auspicious times)."
+                    data-ta="கவனம் செலுத்த வேண்டிய பகுதிகள், செய்ய வேண்டியவை & செய்யக்கூடாதவை, சுப காலம்."
+                  >
+                    Focus areas, dos & don'ts, and your
+                    <strong>Shubha Kāla</strong> (auspicious times).
+                  </p>
+                </div>
+              </div>
+              <div class="step-row">
+                <div class="step-num">4</div>
+                <div class="step-body">
+                  <h4
+                    data-en="Practical remedies"
+                    data-ta="நடைமுறை பரிகாரங்கள்"
+                  >
+                    Practical remedies
+                  </h4>
+                  <p
+                    data-en="Mantras, yantras, gemstones, or rituals simplified for modern life."
+                    data-ta="நவீன வாழ்க்கைக்கு எளிமைப்படுத்தப்பட்ட மந்திரங்கள், யந்திரங்கள், ரத்தினங்கள்."
+                  >
+                    Mantras, yantras, gemstones, or rituals simplified for
+                    modern life.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="path-note">
+              <p
+                data-en="We draw wisdom from the Atharva Veda and Nakṣatra traditions, explained in today's language."
+                data-ta="அதர்வ வேதம் மற்றும் நக்ஷத்திர மரபுகளிலிருந்து ஞானத்தைப் பெறுகிறோம், இன்றைய மொழியில் விளக்கப்படுகிறது."
+              >
+                We draw wisdom from the Atharva Veda and Nakṣatra traditions,
+                explained in today's language.
+              </p>
+            </div>
+            <div style="text-align: center">
+              <a
+                href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20want%20my%20personalized%20horoscope."
+                target="_blank"
+                class="btn btn-gold"
+                ><span data-en="Get My Horoscope" data-ta="என் ஜாதகம் பெறுக"
+                  >Get My Horoscope</span
+                ></a
+              >
+            </div>
+          </div>
+          <div class="path-card rv">
+            <h3
+              data-en="Path B — Bring Us Your Problems"
+              data-ta="பாதை B — உங்கள் பிரச்சனைகளை கொண்டு வாருங்கள்"
+            >
+              Path B — Bring Us Your Problems
+            </h3>
+            <p
+              class="path-sub"
+              data-en="Life doesn't always follow charts. Sometimes, you just want answers."
+              data-ta="வாழ்க்கை எப்போதும் ஜாதகத்தைப் பின்பற்றாது. சில நேரங்களில் பதில்கள் மட்டுமே வேண்டும்."
+            >
+              "Life doesn't always follow charts. Sometimes, you just want
+              answers."
+            </p>
+            <div class="prob-list">
+              <div class="prob-item">
+                <div class="prob-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=100&h=100&fit=crop"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h5 data-en="Career blocks?" data-ta="தொழில் தடைகள்?">
+                    Career blocks?
+                  </h5>
+                  <p
+                    data-en="Guidance on promotions, growth, and financial stability."
+                    data-ta="பதவி உயர்வு, வளர்ச்சி, நிதி நிலைத்தன்மை குறித்த வழிகாட்டுதல்."
+                  >
+                    Guidance on promotions, growth, and financial stability.
+                  </p>
+                </div>
+              </div>
+              <div class="prob-item">
+                <div class="prob-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=100&h=100&fit=crop"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h5
+                    data-en="Love & marriage struggles?"
+                    data-ta="காதல் & திருமண போராட்டங்கள்?"
+                  >
+                    Love & marriage struggles?
+                  </h5>
+                  <p
+                    data-en="Remedies for compatibility, timing, or harmony."
+                    data-ta="பொருத்தம், நேரம், இணக்கம் ஆகியவற்றிற்கான பரிகாரங்கள்."
+                  >
+                    Remedies for compatibility, timing, or harmony.
+                  </p>
+                </div>
+              </div>
+              <div class="prob-item">
+                <div class="prob-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=100&h=100&fit=crop"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h5 data-en="Health concerns?" data-ta="உடல்நல கவலைகள்?">
+                    Health concerns?
+                  </h5>
+                  <p
+                    data-en="Preventive and spiritual healing suggestions."
+                    data-ta="தடுப்பு மற்றும் ஆன்மீக சிகிச்சை பரிந்துரைகள்."
+                  >
+                    Preventive and spiritual healing suggestions.
+                  </p>
+                </div>
+              </div>
+              <div class="prob-item">
+                <div class="prob-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=100&h=100&fit=crop"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h5
+                    data-en="Evil eye or negativity?"
+                    data-ta="திருஷ்டி அல்லது எதிர்மறை?"
+                  >
+                    Evil eye or negativity?
+                  </h5>
+                  <p
+                    data-en="Protective yantras, mantras, and energy cleansing rituals."
+                    data-ta="பாதுகாப்பு யந்திரங்கள், மந்திரங்கள், ஆற்றல் சுத்திகரிப்பு."
+                  >
+                    Protective yantras, mantras, and energy cleansing rituals.
+                  </p>
+                </div>
+              </div>
+              <div class="prob-item">
+                <div class="prob-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1553729459-uj91aa4zmc=?w=100&h=100&fit=crop"
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <h5
+                    data-en="Wealth & prosperity?"
+                    data-ta="செல்வம் & செழிப்பு?"
+                  >
+                    Wealth & prosperity?
+                  </h5>
+                  <p
+                    data-en="Lakshmi mantras and vastu tips that work."
+                    data-ta="லட்சுமி மந்திரங்கள் மற்றும் வாஸ்து குறிப்புகள்."
+                  >
+                    Lakshmi mantras and vastu tips that work.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="path-note">
+              <p
+                data-en="Whatever the worry — our remedies are customized to your birth chart and life stage."
+                data-ta="எந்தக் கவலையாக இருந்தாலும் — எங்கள் பரிகாரங்கள் உங்கள் ஜாதகம் மற்றும் வாழ்க்கை நிலைக்கு ஏற்ப தனிப்பயனாக்கப்படுகின்றன."
+              >
+                Whatever the worry — our remedies are customized to your birth
+                chart and life stage.
+              </p>
+            </div>
+            <div style="text-align: center">
+              <a
+                href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20need%20a%20personalized%20remedy."
+                target="_blank"
+                class="btn btn-gold"
+                ><span
+                  data-en="Find My Remedy"
+                  data-ta="என் பரிகாரத்தைக் கண்டறிக"
+                  >Find My Remedy</span
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats rv">
+      <div class="wrap">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-num" data-en="50K+" data-ta="50K+">50K+</div>
+            <div
+              class="stat-label"
+              data-en="Horoscopes Delivered"
+              data-ta="ஜாதகங்கள் வழங்கப்பட்டன"
+            >
+              Horoscopes Delivered
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-en="200+" data-ta="200+">200+</div>
+            <div
+              class="stat-label"
+              data-en="Expert Astrologers"
+              data-ta="நிபுணர் ஜோதிடர்கள்"
+            >
+              Expert Astrologers
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-en="4.9★" data-ta="4.9★">4.9★</div>
+            <div
+              class="stat-label"
+              data-en="Average Rating"
+              data-ta="சராசரி மதிப்பீடு"
+            >
+              Average Rating
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" data-en="15+" data-ta="15+">15+</div>
+            <div
+              class="stat-label"
+              data-en="Years of Tradition"
+              data-ta="வருட பாரம்பரியம்"
+            >
+              Years of Tradition
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULES -->
+    <section class="modules" id="modules">
+      <div class="astro-bg">
+        <div class="star-field"></div>
+        <div class="glow-orb purple-3 anim" style="animation-delay: -2s"></div>
+      </div>
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span class="label" data-en="Services" data-ta="சேவைகள்"
+            >Services</span
+          >
+          <h2
+            class="heading"
+            data-en="Start where you need help most"
+            data-ta="உங்களுக்கு மிகவும் உதவி தேவையான இடத்தில் தொடங்குங்கள்"
+          >
+            Start where you need <span class="gold">help</span> most
+          </h2>
+        </div>
+        <div class="mod-grid">
+          <div class="mod-card rv">
+            <div class="mod-img">
+              <img
+                src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=500&h=300&fit=crop"
+                alt="Mobile horoscope"
+                loading="lazy"
+              />
+              <div class="mod-img-overlay"></div>
+            </div>
+            <div class="mod-body">
+              <h3 data-en="At Your Mobile" data-ta="உங்கள் மொபைலில்">
+                At Your Mobile
+              </h3>
+              <div
+                class="mod-tag"
+                data-en="Instant horoscope in your format."
+                data-ta="உங்கள் வடிவத்தில் உடனடி ஜாதகம்."
+              >
+                "Instant horoscope in your format."
+              </div>
+              <p
+                class="desc"
+                data-en="PDF for detailed study, AI video for engaging explanations, or audio for on-the-go guidance."
+                data-ta="விரிவான படிப்புக்கு PDF, ஈர்க்கும் விளக்கங்களுக்கு AI வீடியோ, அல்லது பயணத்தின் போது வழிகாட்டுதலுக்கு ஆடியோ."
+              >
+                PDF for detailed study, AI video for engaging explanations, or
+                audio for on-the-go guidance.
+              </p>
+              <a
+                href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20want%20my%20personalized%20horoscope."
+                target="_blank"
+                class="mod-link"
+                data-en="Get My Horoscope →"
+                data-ta="என் ஜாதகம் பெறுக →"
+                >Get My Horoscope →</a
+              >
+            </div>
+          </div>
+          <div class="mod-card rv">
+            <div class="mod-img">
+              <img
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&h=300&fit=crop"
+                alt="Astrologer session"
+                loading="lazy"
+              />
+              <div class="mod-img-overlay"></div>
+            </div>
+            <div class="mod-body">
+              <h3
+                data-en="Personalized Sessions"
+                data-ta="தனிப்பயனாக்கப்பட்ட அமர்வுகள்"
+              >
+                Personalized Sessions
+              </h3>
+              <div
+                class="mod-tag"
+                data-en="Speak 1-to-1 with a trusted astrologer."
+                data-ta="நம்பகமான ஜோதிடருடன் 1-க்கு-1 பேசுங்கள்."
+              >
+                "Speak 1-to-1 with a trusted astrologer."
+              </div>
+              <p
+                class="desc"
+                data-en="Audio, video, or in-person sessions — rooted in tradition, delivered with empathy."
+                data-ta="ஆடியோ, வீடியோ அல்லது நேரில் அமர்வுகள் — பாரம்பரியத்தில் வேர்கொண்டவை."
+              >
+                Audio, video, or in-person sessions — rooted in tradition,
+                delivered with empathy.
+              </p>
+              <a
+                href="#astros"
+                class="mod-link"
+                data-en="See Experts →"
+                data-ta="நிபுணர்களைக் காண →"
+                >See Experts →</a
+              >
+            </div>
+          </div>
+          <div class="mod-card rv">
+            <div class="mod-img">
+              <img
+                src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500&h=300&fit=crop"
+                alt="Matching"
+                loading="lazy"
+              />
+              <div class="mod-img-overlay"></div>
+            </div>
+            <div class="mod-body">
+              <h3 data-en="Matching" data-ta="பொருத்தம்">Matching</h3>
+              <div
+                class="mod-tag"
+                data-en="Love & marriage compatibility, simplified."
+                data-ta="காதல் & திருமண பொருத்தம், எளிமையாக்கப்பட்டது."
+              >
+                "Love & marriage compatibility, simplified."
+              </div>
+              <p
+                class="desc"
+                data-en="From Kundali Milan to modern metrics — explore whether your stars align."
+                data-ta="குண்டலி மிலன் முதல் நவீன அளவீடுகள் வரை — உங்கள் நட்சத்திரங்கள் பொருந்துகிறதா எனக் கண்டறியுங்கள்."
+              >
+                From Kundali Milan to modern metrics — explore whether your
+                stars align.
+              </p>
+              <a
+                href="#calcs"
+                class="mod-link"
+                data-en="Run Match →"
+                data-ta="பொருத்தம் பார் →"
+                >Run Match →</a
+              >
+            </div>
+          </div>
+          <div class="mod-card rv">
+            <div class="mod-img">
+              <img
+                src="https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?w=500&h=300&fit=crop"
+                alt="Remedies"
+                loading="lazy"
+              />
+              <div class="mod-img-overlay"></div>
+            </div>
+            <div class="mod-body">
+              <h3 data-en="Pariharam (Remedies)" data-ta="பரிகாரம்">
+                Pariharam (Remedies)
+              </h3>
+              <div
+                class="mod-tag"
+                data-en="Remedies that respect tradition and your lifestyle."
+                data-ta="பாரம்பரியத்தையும் உங்கள் வாழ்க்கை முறையையும் மதிக்கும் பரிகாரங்கள்."
+              >
+                "Remedies that respect tradition and your lifestyle."
+              </div>
+              <p
+                class="desc"
+                data-en="Mantras, yantras, gemstones, or pujas — balanced between Atharva Veda and today."
+                data-ta="மந்திரங்கள், யந்திரங்கள், ரத்தினங்கள் — அதர்வ வேதத்திற்கும் இன்றைக்கும் இடையே சமநிலை."
+              >
+                Mantras, yantras, gemstones, or pujas — balanced between Atharva
+                Veda and today.
+              </p>
+              <a
+                href="#remedies"
+                class="mod-link"
+                data-en="Find Remedy →"
+                data-ta="பரிகாரம் கண்டறிக →"
+                >Find Remedy →</a
+              >
+            </div>
+          </div>
+          <div class="mod-card rv">
+            <div class="mod-img">
+              <img
+                src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500&h=300&fit=crop"
+                alt="Accessories"
+                loading="lazy"
+              />
+              <div class="mod-img-overlay"></div>
+            </div>
+            <div class="mod-body">
+              <h3 data-en="Key Accessories" data-ta="முக்கிய பொருட்கள்">
+                Key Accessories
+              </h3>
+              <div
+                class="mod-tag"
+                data-en="Matched to your chart, not just your style."
+                data-ta="உங்கள் ஜாதகத்திற்கு பொருத்தமான, உங்கள் பாணி மட்டுமல்ல."
+              >
+                "Matched to your chart, not just your style."
+              </div>
+              <p
+                class="desc"
+                data-en="Gemstones, Rudraksha & Yantras — matched to your planetary placements, blessed before delivery."
+                data-ta="ரத்தினங்கள், ருத்ராக்ஷம் & யந்திரங்கள் — உங்கள் கிரக நிலைகளுக்கு பொருத்தமான, வழங்குவதற்கு முன் ஆசீர்வதிக்கப்படும்."
+              >
+                Gemstones, Rudraksha & Yantras — matched to your planetary
+                placements, blessed before delivery.
+              </p>
+              <a
+                href="#shop"
+                class="mod-link"
+                data-en="Shop Personalized →"
+                data-ta="தனிப்பயனாக்கப்பட்ட கடை →"
+                >Shop Personalized →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZODIAC STRIP -->
+    <div class="zodiac-strip">
+      <div class="zodiac-scroll">
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♈</span
+          ><span class="zodiac-name">Aries</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♉</span
+          ><span class="zodiac-name">Taurus</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♊</span
+          ><span class="zodiac-name">Gemini</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♋</span
+          ><span class="zodiac-name">Cancer</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♌</span
+          ><span class="zodiac-name">Leo</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♍</span
+          ><span class="zodiac-name">Virgo</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♎</span
+          ><span class="zodiac-name">Libra</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♏</span
+          ><span class="zodiac-name">Scorpio</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♐</span
+          ><span class="zodiac-name">Sagittarius</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♑</span
+          ><span class="zodiac-name">Capricorn</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♒</span
+          ><span class="zodiac-name">Aquarius</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♓</span
+          ><span class="zodiac-name">Pisces</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♈</span
+          ><span class="zodiac-name">Aries</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♉</span
+          ><span class="zodiac-name">Taurus</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♊</span
+          ><span class="zodiac-name">Gemini</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♋</span
+          ><span class="zodiac-name">Cancer</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♌</span
+          ><span class="zodiac-name">Leo</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♍</span
+          ><span class="zodiac-name">Virgo</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♎</span
+          ><span class="zodiac-name">Libra</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♏</span
+          ><span class="zodiac-name">Scorpio</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♐</span
+          ><span class="zodiac-name">Sagittarius</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♑</span
+          ><span class="zodiac-name">Capricorn</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♒</span
+          ><span class="zodiac-name">Aquarius</span>
+        </div>
+        <div class="zodiac-sign">
+          <span class="zodiac-symbol">♓</span
+          ><span class="zodiac-name">Pisces</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ASTROLOGERS -->
+    <section class="astros" id="astros">
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span
+            class="label"
+            data-en="Expert Guidance"
+            data-ta="நிபுணர் வழிகாட்டுதல்"
+            >Expert Guidance</span
+          >
+          <h2
+            class="heading"
+            data-en="Talk to a Verified Astrologer"
+            data-ta="சரிபார்க்கப்பட்ட ஜோதிடரிடம் பேசுங்கள்"
+          >
+            Talk to a Verified <span class="gold">Astrologer</span>
+          </h2>
+          <p
+            class="subtext center"
+            data-en="Connect instantly via chat or call. Guidance on love, career, health, and more."
+            data-ta="அரட்டை அல்லது அழைப்பு மூலம் உடனடியாக இணையுங்கள். காதல், தொழில், ஆரோக்கியம் பற்றிய வழிகாட்டுதல்."
+          >
+            Connect instantly via chat or call. Guidance on love, career,
+            health, and more.
+          </p>
+        </div>
+        <div class="astro-grid">
+          <div class="astro-card rv">
+            <div class="astro-avatar">
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&crop=face"
+                alt="Astro Jane"
+                loading="lazy"
+              />
+            </div>
+            <h4>Astro Jane</h4>
+            <div class="astro-spec">Love & Career</div>
+            <div class="astro-meta">⭐ 4.9 · 8+ yrs</div>
+            <div class="astro-price">₹50/min</div>
+            <div class="astro-actions">
+              <a
+                href="https://wa.me/918778633417?text=Hi!%20I%20want%20to%20chat%20with%20an%20astrologer."
+                target="_blank"
+                class="btn btn-gold"
+                >Chat</a
+              ><a
+                href="https://wa.me/918778633417?text=Hi!%20Tell%20me%20more%20about%20your%20astrologers."
+                target="_blank"
+                class="btn btn-outline"
+                >Profile</a
+              >
+            </div>
+          </div>
+          <div class="astro-card rv">
+            <div class="astro-avatar">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face"
+                alt="Vedic Rahul"
+                loading="lazy"
+              />
+            </div>
+            <h4>Vedic Rahul</h4>
+            <div class="astro-spec">Marriage & Finance</div>
+            <div class="astro-meta">⭐ 4.8 · 12+ yrs</div>
+            <div class="astro-price">₹75/min</div>
+            <div class="astro-actions">
+              <a
+                href="https://wa.me/918778633417?text=Hi!%20I%20want%20to%20chat%20with%20an%20astrologer."
+                target="_blank"
+                class="btn btn-gold"
+                >Chat</a
+              ><a
+                href="https://wa.me/918778633417?text=Hi!%20Tell%20me%20more%20about%20your%20astrologers."
+                target="_blank"
+                class="btn btn-outline"
+                >Profile</a
+              >
+            </div>
+          </div>
+          <div class="astro-card rv">
+            <div class="astro-avatar">
+              <img
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=face"
+                alt="Tarot Sarah"
+                loading="lazy"
+              />
+            </div>
+            <h4>Tarot Sarah</h4>
+            <div class="astro-spec">Tarot & Spiritual</div>
+            <div class="astro-meta">⭐ 5.0 · 6+ yrs</div>
+            <div class="astro-price">₹60/min</div>
+            <div class="astro-actions">
+              <a
+                href="https://wa.me/918778633417?text=Hi!%20I%20want%20to%20chat%20with%20an%20astrologer."
+                target="_blank"
+                class="btn btn-gold"
+                >Chat</a
+              ><a
+                href="https://wa.me/918778633417?text=Hi!%20Tell%20me%20more%20about%20your%20astrologers."
+                target="_blank"
+                class="btn btn-outline"
+                >Profile</a
+              >
+            </div>
+          </div>
+          <div class="astro-card rv">
+            <div class="astro-avatar">
+              <img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face"
+                alt="Priya Sharma"
+                loading="lazy"
+              />
+            </div>
+            <h4>Priya Sharma</h4>
+            <div class="astro-spec">Kundli & Remedies</div>
+            <div class="astro-meta">⭐ 4.7 · 15+ yrs</div>
+            <div class="astro-price">₹90/min</div>
+            <div class="astro-actions">
+              <a
+                href="https://wa.me/918778633417?text=Hi!%20I%20want%20to%20chat%20with%20an%20astrologer."
+                target="_blank"
+                class="btn btn-gold"
+                >Chat</a
+              ><a
+                href="https://wa.me/918778633417?text=Hi!%20Tell%20me%20more%20about%20your%20astrologers."
+                target="_blank"
+                class="btn btn-outline"
+                >Profile</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GET -->
+    <section class="expect" id="expect">
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span class="label" data-en="Your Report" data-ta="உங்கள் அறிக்கை"
+            >Your Report</span
+          >
+          <h2
+            class="heading"
+            data-en="Expect clarity, not complexity"
+            data-ta="தெளிவை எதிர்பாருங்கள், சிக்கலை அல்ல"
+          >
+            Expect clarity, not <span class="gold">complexity</span>
+          </h2>
+        </div>
+        <div class="expect-row rv">
+          <div class="expect-item">
+            <div class="expect-icon">⭐</div>
+            <p data-en="Your big themes" data-ta="உங்கள் முக்கிய கருத்துகள்">
+              Your big themes
+            </p>
+          </div>
+          <div class="expect-item">
+            <div class="expect-icon">⏱️</div>
+            <p data-en="Timing cues" data-ta="நேர குறிப்புகள்">Timing cues</p>
+          </div>
+          <div class="expect-item">
+            <div class="expect-icon">🌿</div>
+            <p data-en="Personal remedies" data-ta="தனிப்பட்ட பரிகாரங்கள்">
+              Personal remedies
+            </p>
+          </div>
+          <div class="expect-item">
+            <div class="expect-icon">💡</div>
+            <p data-en="Lifestyle nudges" data-ta="வாழ்க்கை முறை குறிப்புகள்">
+              Lifestyle nudges
+            </p>
+          </div>
+          <div class="expect-item">
+            <div class="expect-icon">💬</div>
+            <p
+              data-en="Optional deep-dive"
+              data-ta="விரும்பினால் ஆழ்ந்த பகுப்பாய்வு"
+            >
+              Optional deep-dive
+            </p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 1.5rem" class="rv">
+          <a
+            href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20want%20my%20personalized%20horoscope."
+            target="_blank"
+            class="btn btn-gold"
+            ><span data-en="See My Report" data-ta="என் அறிக்கையைக் காண"
+              >See My Report</span
+            ></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULATORS -->
+    <section class="calcs" id="calcs" style="display: none">
+      <div class="astro-bg">
+        <div class="star-field"></div>
+      </div>
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span
+            class="label"
+            data-en="Interactive Tools"
+            data-ta="ஊடாடும் கருவிகள்"
+            >Interactive Tools</span
+          >
+          <h2
+            class="heading"
+            data-en="Quick Spiritual Tools"
+            data-ta="விரைவான ஆன்மீக கருவிகள்"
+          >
+            Quick Spiritual <span class="gold">Tools</span>
+          </h2>
+        </div>
+        <div class="calc-grid">
+          <div class="calc-card rv">
+            <div class="calc-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&h=200&fit=crop"
+                alt="Love Calculator"
+                loading="lazy"
+              />
+            </div>
+            <div class="calc-body">
+              <h4 data-en="Love Calculator" data-ta="காதல் கணிப்பான்">
+                Love Calculator
+              </h4>
+              <p
+                data-en="Test your cosmic chemistry with someone special."
+                data-ta="சிறப்பான ஒருவருடன் உங்கள் அண்ட ரசாயனத்தைச் சோதியுங்கள்."
+              >
+                Test your cosmic chemistry with someone special.
+              </p>
+              <span
+                class="calc-link"
+                data-en="Check Now"
+                data-ta="இப்போது சரிபார்"
+                >Check Now</span
+              >
+            </div>
+          </div>
+          <div class="calc-card rv">
+            <div class="calc-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&h=200&fit=crop"
+                alt="Numerology"
+                loading="lazy"
+              />
+            </div>
+            <div class="calc-body">
+              <h4 data-en="Numerology Finder" data-ta="எண்கணிதம்">
+                Numerology Finder
+              </h4>
+              <p
+                data-en="Decode your lucky numbers and life path."
+                data-ta="உங்கள் அதிர்ஷ்ட எண்கள் மற்றும் வாழ்க்கைப் பாதையை கண்டறியுங்கள்."
+              >
+                Decode your lucky numbers and life path.
+              </p>
+              <span
+                class="calc-link"
+                data-en="Check Now"
+                data-ta="இப்போது சரிபார்"
+                >Check Now</span
+              >
+            </div>
+          </div>
+          <div class="calc-card rv">
+            <div class="calc-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?w=400&h=200&fit=crop"
+                alt="Name Compatibility"
+                loading="lazy"
+              />
+            </div>
+            <div class="calc-body">
+              <h4 data-en="Name Compatibility" data-ta="பெயர் பொருத்தம்">
+                Name Compatibility
+              </h4>
+              <p
+                data-en="See if your names cosmically align."
+                data-ta="உங்கள் பெயர்கள் அண்ட ரீதியாக பொருந்துகிறதா எனப் பாருங்கள்."
+              >
+                See if your names cosmically align.
+              </p>
+              <span
+                class="calc-link"
+                data-en="Check Now"
+                data-ta="இப்போது சரிபார்"
+                >Check Now</span
+              >
+            </div>
+          </div>
+          <div class="calc-card rv">
+            <div class="calc-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&h=200&fit=crop"
+                alt="Age Calculator"
+                loading="lazy"
+              />
+            </div>
+            <div class="calc-body">
+              <h4 data-en="Age Calculator" data-ta="வயது கணிப்பான்">
+                Age Calculator
+              </h4>
+              <p
+                data-en="Discover milestones in your life path."
+                data-ta="உங்கள் வாழ்க்கைப் பாதையில் மைல்கற்களைக் கண்டறியுங்கள்."
+              >
+                Discover milestones in your life path.
+              </p>
+              <span
+                class="calc-link"
+                data-en="Check Now"
+                data-ta="இப்போது சரிபார்"
+                >Check Now</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOP -->
+    <section class="shop" id="shop">
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span
+            class="label"
+            data-en="Sacred Collection"
+            data-ta="புனிதப் பொருட்கள்"
+            >Sacred Collection</span
+          >
+          <h2
+            class="heading"
+            data-en="Power in Your Pocket"
+            data-ta="உங்கள் கையில் சக்தி"
+          >
+            Power in Your <span class="gold">Pocket</span>
+          </h2>
+        </div>
+        <div class="shop-grid">
+          <div class="shop-card rv">
+            <div class="shop-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&h=300&fit=crop"
+                alt="Rudraksha"
+                loading="lazy"
+              />
+              <div
+                class="shop-badge"
+                data-en="Bestseller"
+                data-ta="சிறந்த விற்பனை"
+              >
+                Bestseller
+              </div>
+            </div>
+            <div class="shop-info">
+              <h4 data-en="Rudraksha Beads" data-ta="ருத்ராக்ஷம்">
+                Rudraksha Beads
+              </h4>
+              <p
+                data-en="Energy, focus, and spiritual balance."
+                data-ta="ஆற்றல், கவனம், ஆன்மீக சமநிலை."
+              >
+                Energy, focus, and spiritual balance.
+              </p>
+              <div class="price">₹1,200</div>
+              <a
+                href="https://wa.me/918778633417?text=Hi!%20I%20want%20to%20order%20from%20Luckymantra."
+                target="_blank"
+                class="btn btn-gold"
+                style="padding: 0.5rem 1.2rem; font-size: 0.82rem"
+                data-en="Buy Now"
+                data-ta="கார்ட்டில் சேர்"
+                >Buy Now</a
+              >
+            </div>
+          </div>
+          <div class="shop-card rv">
+            <div class="shop-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=300&fit=crop"
+                alt="Gemstones"
+                loading="lazy"
+              />
+              <div class="shop-badge" data-en="Popular" data-ta="பிரபலமான">
+                Popular
+              </div>
+            </div>
+            <div class="shop-info">
+              <h4 data-en="Astro Gemstones" data-ta="ஜோதிட ரத்தினங்கள்">
+                Astro Gemstones
+              </h4>
+              <p
+                data-en="Attract positivity and block negativity."
+                data-ta="நேர்மறையை ஈர்க்கும், எதிர்மறையைத் தடுக்கும்."
+              >
+                Attract positivity and block negativity.
+              </p>
+              <div class="price">₹2,500</div>
+              <a
+                href="https://wa.me/918778633417?text=Hi!%20I%20want%20to%20order%20from%20Luckymantra."
+                target="_blank"
+                class="btn btn-gold"
+                style="padding: 0.5rem 1.2rem; font-size: 0.82rem"
+                >Buy Now</a
+              >
+            </div>
+          </div>
+          <div class="shop-card rv">
+            <div class="shop-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=400&h=300&fit=crop"
+                alt="Yantras"
+                loading="lazy"
+              />
+            </div>
+            <div class="shop-info">
+              <h4 data-en="Protective Yantras" data-ta="பாதுகாப்பு யந்திரங்கள்">
+                Protective Yantras
+              </h4>
+              <p
+                data-en="Sacred symbols for prosperity."
+                data-ta="செழிப்புக்கான புனித சின்னங்கள்."
+              >
+                Sacred symbols for prosperity.
+              </p>
+              <div class="price">₹800</div>
+              <a
+                href="https://wa.me/918778633417?text=Hi!%20I%20want%20to%20order%20from%20Luckymantra."
+                target="_blank"
+                class="btn btn-gold"
+                style="padding: 0.5rem 1.2rem; font-size: 0.82rem"
+                >Buy Now</a
+              >
+            </div>
+          </div>
+          <div class="shop-card rv">
+            <div class="shop-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400&h=300&fit=crop"
+                alt="Bracelets"
+                loading="lazy"
+              />
+              <div class="shop-badge" data-en="New" data-ta="புதியது">New</div>
+            </div>
+            <div class="shop-info">
+              <h4 data-en="Astro Bracelets" data-ta="ஜோதிட வளையல்கள்">
+                Astro Bracelets
+              </h4>
+              <p
+                data-en="Style meets spiritual strength."
+                data-ta="பாணி ஆன்மீக வலிமையை சந்திக்கிறது."
+              >
+                Style meets spiritual strength.
+              </p>
+              <div class="price">₹950</div>
+              <a
+                href="https://wa.me/918778633417?text=Hi!%20I%20want%20to%20order%20from%20Luckymantra."
+                target="_blank"
+                class="btn btn-gold"
+                style="padding: 0.5rem 1.2rem; font-size: 0.82rem"
+                >Buy Now</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REMEDIES -->
+    <section class="remedies" id="remedies">
+      <div class="astro-bg">
+        <div class="star-field"></div>
+        <svg
+          class="constellation constellation-bl"
+          viewBox="0 0 260 260"
+          fill="none"
+          stroke="#6B46A3"
+          stroke-width=".5"
+        >
+          <circle cx="40" cy="60" r="2" fill="#C4A04A" opacity=".2" />
+          <circle cx="130" cy="30" r="2.5" fill="#6B46A3" opacity=".3" />
+          <circle cx="210" cy="80" r="1.5" fill="#C4A04A" opacity=".15" />
+          <circle cx="70" cy="180" r="2" fill="#C4A04A" opacity=".2" />
+          <line x1="40" y1="60" x2="130" y2="30" opacity=".1" />
+          <line x1="130" y1="30" x2="210" y2="80" opacity=".08" />
+          <line x1="70" y1="180" x2="130" y2="30" opacity=".06" />
+        </svg>
+      </div>
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span class="label" data-en="Pariharam" data-ta="பரிகாரம்"
+            >Pariharam</span
+          >
+          <h2
+            class="heading"
+            data-en="Solutions for Every Life Challenge"
+            data-ta="ஒவ்வொரு வாழ்க்கை சவாலுக்கும் தீர்வுகள்"
+          >
+            Solutions for Every <span class="gold">Life Challenge</span>
+          </h2>
+        </div>
+        <div class="remedy-stack">
+          <div class="remedy-card rv">
+            <div class="remedy-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1604881991720-f91add269bed?w=400&h=400&fit=crop"
+                alt="Protection"
+                loading="lazy"
+              />
+            </div>
+            <div class="remedy-content">
+              <h3
+                data-en="Curing Evil Eye & Negative Energy"
+                data-ta="திருஷ்டி & எதிர்மறை ஆற்றலை நீக்குதல்"
+              >
+                Curing Evil Eye & Negative Energy
+              </h3>
+              <p
+                data-en="Sudden bad luck, unusual fatigue, or unexplained sadness? Traditional astrology offers powerful protective measures."
+                data-ta="திடீர் துரதிர்ஷ்டம், அசாதாரண சோர்வு, விளக்க முடியாத சோகம்? பாரம்பரிய ஜோதிடம் சக்திவாய்ந்த பாதுகாப்பு நடவடிக்கைகளை வழங்குகிறது."
+              >
+                Sudden bad luck, unusual fatigue, or unexplained sadness?
+                Traditional astrology offers powerful protective measures.
+              </p>
+              <ul class="remedy-list">
+                <li
+                  data-en="Nazar Battu or Black Turmeric energized bracelet absorbs negative vibrations"
+                  data-ta="நஜர் பட்டு அல்லது கருப்பு மஞ்சள் ஆற்றலூட்டப்பட்ட வளையல் எதிர்மறை அதிர்வுகளை உறிஞ்சும்"
+                >
+                  Nazar Battu or Black Turmeric energized bracelet absorbs
+                  negative vibrations
+                </li>
+                <li
+                  data-en="Mahamrityunjaya Yantra creates a protective shield for home or office"
+                  data-ta="மகாமிருத்யுஞ்ஜய யந்திரம் வீடு அல்லது அலுவலகத்திற்கு பாதுகாப்பு கவசம் உருவாக்குகிறது"
+                >
+                  Mahamrityunjaya Yantra creates a protective shield for home or
+                  office
+                </li>
+                <li
+                  data-en="Lemon and Chili ritual or Dhoop ceremony to cleanse your aura"
+                  data-ta="எலுமிச்சை மற்றும் மிளகாய் சடங்கு அல்லது தூப்ப விழா உங்கள் ஒளிவட்டத்தை சுத்திகரிக்கும்"
+                >
+                  Lemon and Chili ritual or Dhoop ceremony to cleanse your aura
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="remedy-card rv">
+            <div class="remedy-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=400&fit=crop"
+                alt="Prosperity"
+                loading="lazy"
+              />
+            </div>
+            <div class="remedy-content">
+              <h3
+                data-en="Attracting Prosperity & Good Business"
+                data-ta="செழிப்பு & நல்ல வணிகத்தை ஈர்த்தல்"
+              >
+                Attracting Prosperity & Good Business
+              </h3>
+              <p
+                data-en="Business stagnant or facing financial hurdles? Align your energy with abundance and success."
+                data-ta="வணிகம் தேக்கமா அல்லது நிதி தடைகளை எதிர்கொள்கிறீர்களா? உங்கள் ஆற்றலை செழிப்பு மற்றும் வெற்றியுடன் சீரமைக்கவும்."
+              >
+                Business stagnant or facing financial hurdles? Align your energy
+                with abundance and success.
+              </p>
+              <ul class="remedy-list">
+                <li
+                  data-en="Shree Yantra in North-East direction attracts wealth"
+                  data-ta="வடகிழக்கு திசையில் ஸ்ரீ யந்திரம் செல்வத்தை ஈர்க்கும்"
+                >
+                  Shree Yantra in North-East direction attracts wealth
+                </li>
+                <li
+                  data-en="Kuber Yantra ensures steady income flow"
+                  data-ta="குபேர யந்திரம் நிலையான வருமான ஓட்டத்தை உறுதி செய்யும்"
+                >
+                  Kuber Yantra ensures steady income flow
+                </li>
+                <li
+                  data-en="Citrine gemstone manifests success and financial growth"
+                  data-ta="சிட்ரின் ரத்தினம் வெற்றி மற்றும் நிதி வளர்ச்சியை வெளிப்படுத்தும்"
+                >
+                  Citrine gemstone manifests success and financial growth
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="remedy-card rv">
+            <div class="remedy-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400&h=400&fit=crop"
+                alt="Love"
+                loading="lazy"
+              />
+            </div>
+            <div class="remedy-content">
+              <h3
+                data-en="Resolving Relationship Issues"
+                data-ta="உறவு பிரச்சனைகளை தீர்த்தல்"
+              >
+                Resolving Relationship Issues
+              </h3>
+              <p
+                data-en="Miscommunication or tension? Spiritual remedies foster love, understanding, and harmony."
+                data-ta="தவறான தொடர்பு அல்லது பதற்றம்? ஆன்மீக பரிகாரங்கள் அன்பு, புரிதல், இணக்கத்தை வளர்க்கும்."
+              >
+                Miscommunication or tension? Spiritual remedies foster love,
+                understanding, and harmony.
+              </p>
+              <ul class="remedy-list">
+                <li
+                  data-en="Mandarin Duck idols enhance love and fidelity"
+                  data-ta="மாண்டரின் வாத்து சிலைகள் அன்பு மற்றும் நம்பகத்தன்மையை மேம்படுத்தும்"
+                >
+                  Mandarin Duck idols enhance love and fidelity
+                </li>
+                <li
+                  data-en="Vashikaran Yantra attracts mutual understanding"
+                  data-ta="வசிகரண யந்திரம் பரஸ்பர புரிதலை ஈர்க்கும்"
+                >
+                  Vashikaran Yantra attracts mutual understanding
+                </li>
+                <li
+                  data-en="Rose Quartz attracts and maintains loving relationships"
+                  data-ta="ரோஸ் குவார்ட்ஸ் அன்பான உறவுகளை ஈர்க்கும் மற்றும் பராமரிக்கும்"
+                >
+                  Rose Quartz attracts and maintains loving relationships
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testi" id="testi">
+      <div class="wrap">
+        <div class="rv">
+          <span class="label">Stories</span>
+          <h2
+            class="heading"
+            data-en="Real people. Real relief."
+            data-ta="உண்மையான மக்கள். உண்மையான நிவாரணம்."
+          >
+            Real people. Real <span class="gold">relief</span>.
+          </h2>
+        </div>
+        <div class="testi-grid rv">
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <blockquote
+              data-en="The AI video made it so easy to follow. I took two steps for my interview — and it worked."
+              data-ta="AI வீடியோ மிகவும் எளிதாக பின்பற்ற வைத்தது. என் நேர்காணலுக்கு இரண்டு படிகள் எடுத்தேன் — அது வேலை செய்தது."
+            >
+              The AI video made it so easy to follow. I took two steps for my
+              interview — and it worked.
+            </blockquote>
+            <div class="testi-author">Aadhya</div>
+            <div class="testi-loc">Chennai</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <blockquote
+              data-en="Our Kundali Milan gave us confidence. The remedies felt respectful, not superstitious."
+              data-ta="எங்கள் குண்டலி மிலன் எங்களுக்கு நம்பிக்கை அளித்தது. பரிகாரங்கள் மரியாதையாக உணர்ந்தன, மூடநம்பிக்கையாக அல்ல."
+            >
+              Our Kundali Milan gave us confidence. The remedies felt
+              respectful, not superstitious.
+            </blockquote>
+            <div class="testi-author">Rohan & Meera</div>
+            <div class="testi-loc">Pune</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <blockquote
+              data-en="The Rudraksha bracelet was customized for me. Subtle but I feel calmer every day."
+              data-ta="ருத்ராக்ஷ வளையல் எனக்காக தனிப்பயனாக்கப்பட்டது. நுட்பமானது ஆனால் தினமும் அமைதியாக உணர்கிறேன்."
+            >
+              The Rudraksha bracelet was customized for me. Subtle but I feel
+              calmer every day.
+            </blockquote>
+            <div class="testi-author">Fathima</div>
+            <div class="testi-loc">Kochi</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINEAGE -->
+    <section class="lineage" id="lineage">
+      <div class="astro-bg">
+        <div class="star-field"></div>
+      </div>
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span class="label" data-en="Our Roots" data-ta="எங்கள் வேர்கள்"
+            >Our Roots</span
+          >
+          <h2
+            class="heading"
+            data-en="Our Knowledge Lineage"
+            data-ta="எங்கள் அறிவுப் பரம்பரை"
+          >
+            Our Knowledge <span class="gold">Lineage</span>
+          </h2>
+        </div>
+        <div class="lineage-list rv">
+          <div class="lineage-item">
+            <strong>Brihat Parāśara Hora Śāstra</strong
+            ><span
+              data-en="Core Vedic framework"
+              data-ta="முக்கிய வேத கட்டமைப்பு"
+              >Core Vedic framework</span
+            >
+          </div>
+          <div class="lineage-item">
+            <strong>Brihat Jātaka</strong
+            ><span data-en="Predictive methods" data-ta="கணிப்பு முறைகள்"
+              >Predictive methods</span
+            >
+          </div>
+          <div class="lineage-item">
+            <strong>Sarāvalī</strong
+            ><span data-en="Practical delineations" data-ta="நடைமுறை வரையறைகள்"
+              >Practical delineations</span
+            >
+          </div>
+          <div class="lineage-item">
+            <strong>Phaladīpikā</strong
+            ><span data-en="Results & timing" data-ta="பலன்கள் & நேரம்"
+              >Results & timing</span
+            >
+          </div>
+          <div class="lineage-item">
+            <strong>Jātaka Pārijāta</strong
+            ><span data-en="Classical synthesis" data-ta="பாரம்பரிய தொகுப்பு"
+              >Classical synthesis</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEAD CAPTURE -->
+    <section class="lead" id="lead">
+      <div class="astro-bg">
+        <div class="star-field"></div>
+        <div class="glow-orb purple-1 anim" style="animation-delay: -5s"></div>
+      </div>
+      <div class="wrap">
+        <div class="rv">
+          <span
+            class="label"
+            style="text-align: center; display: block"
+            data-en="Free Offer"
+            data-ta="இலவச சலுகை"
+            >Free Offer</span
+          >
+          <h2
+            class="heading"
+            style="text-align: center"
+            data-en="Get a free Lucky Consultation"
+            data-ta="இலவச அதிர்ஷ்ட ஆலோசனையைப் பெறுங்கள்."
+          >
+            Get a free "<span class="gold">Lucky</span>" Consultation
+          </h2>
+          <p
+            class="subtext center"
+            data-en="Tell us your birth details and we'll get back to you with your path to Luck"
+            data-ta="உங்கள் பிறப்பு விவரங்களை எங்களிடம் கூறுங்கள், உங்கள் அதிர்ஷ்டத்திற்கான பாதையுடன் நாங்கள் உங்களிடம் திரும்புவோம்!"
+          >
+            Tell us your birth details and we'll get back to you with your path
+            to Luck!
+          </p>
+        </div>
+        <div class="lead-form rv">
+          <input
+            type="text"
+            placeholder="Full Name"
+            required
+            id="name"
+            data-en-ph="Full Name"
+            data-ta-ph="முழு பெயர்"
+          />
+          <div class="row">
+            <input
+              type="text"
+              id="dob"
+              placeholder="DOB (DD/MM/YYYY)"
+              required
+              data-en-ph="DOB (DD/MM/YYYY)"
+              data-ta-ph="பிறந்த தேதி"
+            /><input
+              type="text"
+              id="time"
+              placeholder="Time of Birth"
+              data-en-ph="Time of Birth (if known)"
+              data-ta-ph="பிறந்த நேரம்"
+            />
+          </div>
+          <input
+            type="text"
+            id="place"
+            placeholder="Place of Birth (City)"
+            data-en-ph="Place of Birth (City, Country)"
+            data-ta-ph="பிறந்த இடம்"
+          /><input
+            type="text"
+            id="phone"
+            placeholder="Phone Number"
+            required
+            data-en-ph="Phone Number"
+            data-ta-ph="தொலைபேசி எண்"
+          /><input
+            type="text"
+            id="email"
+            placeholder="Email Address"
+            data-en-ph="Email Address"
+            data-ta-ph="மின்னஞ்சல் முகவரி"
+          /><select id="service" required>
+            <option
+              value=""
+              disabled
+              selected
+              data-en="Your Expected Service"
+              data-ta="நீங்கள் எதிர்பார்க்கும் சேவை"
+            >
+              Your Expected Service
+            </option>
+
+            <option
+              value="Path A — Your Personalized Horoscope"
+              data-en="Path A — Your Personalized Horoscope"
+              data-ta="Path A — உங்கள் தனிப்பட்ட ஜாதக விளக்கம்"
+            >
+              Path A — Your Personalized Horoscope
+            </option>
+
+            <option
+              value="Path B — Bring Us Your Problems / Consultation"
+              data-en="Path B — Bring Us Your Problems / Consultation"
+              data-ta="Path B — உங்கள் பிரச்சனைகளுக்கான ஆலோசனை"
+            >
+              Path B — Bring Us Your Problems / Consultation
+            </option></select
+          ><a
+            href="#"
+            onclick="sendToWhatsApp()"
+            target="_blank"
+            class="btn btn-gold"
+            style="
+              width: 100%;
+              justify-content: center;
+              font-size: 1.05rem;
+              padding: 1rem;
+            "
+            ><span data-en="Enquire now" data-ta="இப்போது விசாரிக்கவும்"
+              >Enquire now</span
+            ></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ETHOS -->
+    <section class="ethos" id="ethos">
+      <div class="wrap rv">
+        <span class="label" data-en="Our Promise" data-ta="எங்கள் வாக்குறுதி"
+          >Our Promise</span
+        >
+        <h2
+          class="heading"
+          data-en="Spiritual, responsible, and human"
+          data-ta="ஆன்மீகமான, பொறுப்பான, மனிதாபிமான"
+        >
+          Spiritual, responsible, and <span class="gold">human</span>
+        </h2>
+        <p
+          class="subtext center"
+          data-en="Astrology offers guidance — not guarantees. We avoid fear-based language, never push expensive items, and encourage practical choices."
+          data-ta="ஜோதிடம் வழிகாட்டுதலை வழங்குகிறது — உத்தரவாதங்களை அல்ல. பயத்தை அடிப்படையாகக் கொண்ட மொழியைத் தவிர்க்கிறோம்."
+        >
+          Astrology offers guidance — not guarantees. We avoid fear-based
+          language, never push expensive items, and encourage practical choices.
+        </p>
+        <div class="ethos-points">
+          <div class="ethos-point">
+            <span class="ethos-chk">✓</span
+            ><span
+              data-en="No fear. No pressure."
+              data-ta="பயமில்லை. அழுத்தமில்லை."
+              >No fear. No pressure.</span
+            >
+          </div>
+          <div class="ethos-point">
+            <span class="ethos-chk">✓</span
+            ><span
+              data-en="Clear pricing, easy refunds."
+              data-ta="தெளிவான விலை, எளிதான பணத்திரும்பல்."
+              >Clear pricing, easy refunds.</span
+            >
+          </div>
+          <div class="ethos-point">
+            <span class="ethos-chk">✓</span
+            ><span
+              data-en="Confidential & secure."
+              data-ta="ரகசியமான & பாதுகாப்பான."
+              >Confidential & secure.</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQS -->
+    <section class="faqs" id="faqs">
+      <div class="astro-bg">
+        <div class="star-field"></div>
+      </div>
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span class="label">FAQs</span>
+          <h2
+            class="heading"
+            data-en="Frequently Asked Questions"
+            data-ta="அடிக்கடி கேட்கப்படும் கேள்விகள்"
+          >
+            Frequently Asked <span class="gold">Questions</span>
+          </h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item rv">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span
+                data-en="Is this Vedic astrology?"
+                data-ta="இது வேத ஜோதிடமா?"
+                >Is this Vedic astrology?</span
+              ><svg
+                class="arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="faq-a">
+              <p
+                data-en="Yes — our method follows classical Jyotiṣa frameworks (BPHS, Brihat Jātaka), explained in simple language."
+                data-ta="ஆம் — எங்கள் முறை பாரம்பரிய ஜோதிஷ கட்டமைப்புகளை (BPHS, பிருகத் ஜாதகம்) பின்பற்றுகிறது, எளிய மொழியில் விளக்கப்படுகிறது."
+              >
+                Yes — our method follows classical Jyotiṣa frameworks (BPHS,
+                Brihat Jātaka), explained in simple language.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item rv">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span
+                data-en="What if I don't know my exact birth time?"
+                data-ta="என் சரியான பிறந்த நேரம் தெரியாவிட்டால்?"
+                >What if I don't know my exact birth time?</span
+              ><svg
+                class="arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="faq-a">
+              <p
+                data-en="We guide you through Prashna-style cues to approximate. You can still get meaningful insights."
+                data-ta="பிரச்ன முறை குறிப்புகள் மூலம் நாங்கள் வழிகாட்டுகிறோம். நீங்கள் இன்னும் அர்த்தமுள்ள நுண்ணறிவுகளைப் பெறலாம்."
+              >
+                We guide you through Prashna-style cues to approximate. You can
+                still get meaningful insights.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item rv">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span
+                data-en="Are remedies compulsory?"
+                data-ta="பரிகாரங்கள் கட்டாயமா?"
+                >Are remedies compulsory?</span
+              ><svg
+                class="arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="faq-a">
+              <p
+                data-en="Never. They're options. Start with what feels aligned and comfortable."
+                data-ta="ஒருபோதும் இல்லை. அவை விருப்பத்தேர்வுகள். உங்களுக்கு ஏற்றதாக உணர்வதில் தொடங்குங்கள்."
+              >
+                Never. They're options. Start with what feels aligned and
+                comfortable.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item rv">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span
+                data-en="How fast will I get my report?"
+                data-ta="என் அறிக்கை எவ்வளவு விரைவாக கிடைக்கும்?"
+                >How fast will I get my report?</span
+              ><svg
+                class="arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="faq-a">
+              <p
+                data-en="PDF/Audio/AI Video are delivered quickly — detailed timelines shown at checkout."
+                data-ta="PDF/ஆடியோ/AI வீடியோ விரைவாக வழங்கப்படும் — செலுத்தும் போது விரிவான நேரக்கோடுகள் காட்டப்படும்."
+              >
+                PDF/Audio/AI Video are delivered quickly — detailed timelines
+                shown at checkout.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item rv">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span
+                data-en="Which languages are available?"
+                data-ta="எந்த மொழிகள் கிடைக்கும்?"
+                >Which languages are available?</span
+              ><svg
+                class="arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </div>
+            <div class="faq-a">
+              <p
+                data-en="English, Tamil (தமிழ்), Hindi (हिन्दी) to start — more coming soon."
+                data-ta="ஆங்கிலம், தமிழ், இந்தி — விரைவில் மேலும் மொழிகள் வரும்."
+              >
+                English, Tamil (தமிழ்), Hindi (हिन्दी) to start — more coming
+                soon.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section class="blog" id="blog">
+      <div class="astro-bg">
+        <div class="star-field"></div>
+        <div class="glow-orb gold-2 anim" style="animation-delay: -6s"></div>
+      </div>
+      <div class="wrap">
+        <div style="text-align: center" class="rv">
+          <span class="label" data-en="Insights" data-ta="நுண்ணறிவுகள்"
+            >Insights</span
+          >
+          <h2
+            class="heading"
+            data-en="Learn, Explore, Transform"
+            data-ta="கற்றுக்கொள், ஆராய், மாற்று"
+          >
+            Learn, Explore, <span class="gold">Transform</span>
+          </h2>
+        </div>
+        <div class="blog-grid">
+          <div class="blog-card rv">
+            <div class="blog-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=500&h=300&fit=crop"
+                alt="Fortune"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-body">
+              <div class="tag">Luck</div>
+              <h4
+                data-en="5 Easy Ways to Attract Good Fortune This Week"
+                data-ta="இந்த வாரம் நல்ல அதிர்ஷ்டத்தை ஈர்ப்பதற்கான 5 எளிய வழிகள்"
+              >
+                5 Easy Ways to Attract Good Fortune This Week
+              </h4>
+              <p
+                data-en="Simple rituals and mindset shifts to invite positivity."
+                data-ta="நேர்மறையை அழைக்கும் எளிய சடங்குகள் மற்றும் மனநிலை மாற்றங்கள்."
+              >
+                Simple rituals and mindset shifts to invite positivity.
+              </p>
+            </div>
+          </div>
+          <div class="blog-card rv">
+            <div class="blog-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=500&h=300&fit=crop"
+                alt="Numerology"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-body">
+              <div class="tag">Numerology</div>
+              <h4
+                data-en="The Power of Your Birth Number"
+                data-ta="உங்கள் பிறப்பு எண்ணின் சக்தி"
+              >
+                The Power of Your Birth Number
+              </h4>
+              <p
+                data-en="How numbers in your birth date shape your destiny."
+                data-ta="உங்கள் பிறந்த தேதியின் எண்கள் உங்கள் விதியை எவ்வாறு வடிவமைக்கின்றன."
+              >
+                How numbers in your birth date shape your destiny.
+              </p>
+            </div>
+          </div>
+          <div class="blog-card rv">
+            <div class="blog-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?w=500&h=300&fit=crop"
+                alt="Myths"
+                loading="lazy"
+              />
+            </div>
+            <div class="blog-body">
+              <div class="tag">Myths</div>
+              <h4
+                data-en="Astrology Myths You Should Stop Believing"
+                data-ta="நீங்கள் நம்புவதை நிறுத்த வேண்டிய ஜோதிட கட்டுக்கதைகள்"
+              >
+                Astrology Myths You Should Stop Believing
+              </h4>
+              <p
+                data-en="Busting common misconceptions about the stars."
+                data-ta="நட்சத்திரங்களைப் பற்றிய பொதுவான தவறான கருத்துக்களை உடைத்தல்."
+              >
+                Busting common misconceptions about the stars.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+      <div class="wrap" style="position: relative; z-index: 2">
+        <div class="rv" style="text-align: center">
+          <span
+            class="label"
+            style="color: var(--gold-bright)"
+            data-en="Begin Now"
+            data-ta="இப்போது தொடங்குங்கள்"
+            >Begin Now</span
+          >
+          <h2
+            class="heading"
+            data-en="Your Lucky Moment Is Just a Click Away"
+            data-ta="உங்கள் அதிர்ஷ்ட தருணம் ஒரு கிளிக் தொலைவில்"
+          >
+            Your Lucky Moment Is<br />Just a Click Away
+          </h2>
+          <p
+            class="subtext center"
+            style="color: rgba(255, 255, 255, 0.55)"
+            data-en="Start your journey toward clarity, alignment, and cosmic guidance."
+            data-ta="தெளிவு, சீரமைப்பு மற்றும் அண்ட வழிகாட்டுதலை நோக்கிய உங்கள் பயணத்தைத் தொடங்குங்கள்."
+          >
+            Start your journey toward clarity, alignment, and cosmic guidance.
+          </p>
+        </div>
+        <div class="final-cta-actions rv">
+          <a
+            href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20want%20my%20personalized%20horoscope."
+            target="_blank"
+            class="btn btn-gold"
+            ><span data-en="Start My Journey" data-ta="என் பயணத்தைத் தொடங்கு"
+              >Start My Journey</span
+            ></a
+          ><a
+            href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20want%20to%20talk%20to%20an%20expert."
+            target="_blank"
+            class="btn btn-outline"
+            style="border-color: rgba(255, 255, 255, 0.2); color: var(--white)"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              style="width: 18px; height: 18px"
+            >
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+              />
+              <path
+                d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"
+              /></svg
+            ><span data-en="Chat on WhatsApp" data-ta="WhatsApp இல் அரட்டை"
+              >Chat on WhatsApp</span
+            ></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo" style="font-size: 1.2rem; margin-bottom: 0.6rem">
+            <div class="logo-mark" style="width: 26px; height: 26px"></div>
+            Luckymantra
+          </div>
+          <p
+            class="footer-tagline"
+            data-en="Guided by scripture, designed for life. Blending ancient Vedic wisdom with modern technology."
+            data-ta="வேதங்களால் வழிநடத்தப்பட்டது, வாழ்க்கைக்காக வடிவமைக்கப்பட்டது."
+          >
+            Guided by scripture, designed for life. Blending ancient Vedic
+            wisdom with modern technology.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h5 data-en="Services" data-ta="சேவைகள்">Services</h5>
+          <a href="#modules" data-en="At Your Mobile" data-ta="உங்கள் மொபைலில்"
+            >At Your Mobile</a
+          ><a href="#astros" data-en="Sessions" data-ta="அமர்வுகள்">Sessions</a
+          ><a href="#modules" data-en="Matching" data-ta="பொருத்தம்">Matching</a
+          ><a href="#modules" data-en="Horoscope" data-ta="ஜாதகம்">Horoscope</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-en="Explore" data-ta="ஆராயுங்கள்">Explore</h5>
+          <a href="#calcs" data-en="Calculators" data-ta="கணிப்பான்கள்"
+            >Calculators</a
+          ><a href="#shop" data-en="Accessories" data-ta="பொருட்கள்"
+            >Accessories</a
+          ><a href="#remedies" data-en="Pariharam" data-ta="பரிகாரம்"
+            >Pariharam</a
+          ><a href="#blog" data-en="Blog" data-ta="வலைப்பதிவு">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-en="Support" data-ta="ஆதரவு">Support</h5>
+          <a href="https://wa.me/918778633417" target="_blank"
+            >WhatsApp: 8778633417</a
+          ><a href="#" data-en="Privacy Policy" data-ta="தனியுரிமைக் கொள்கை"
+            >Privacy Policy</a
+          ><a href="#" data-en="Terms of Service" data-ta="சேவை விதிமுறைகள்"
+            >Terms of Service</a
+          ><a
+            href="#faqs"
+            data-en="FAQ"
+            data-ta="அடிக்கடி கேட்கப்படும் கேள்விகள்"
+            >FAQ</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy"
+          >© 2026 Luckymantra. All rights reserved.</span
+        >
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">IG</a
+          ><a href="#" aria-label="YouTube">YT</a
+          ><a href="#" aria-label="Facebook">FB</a
+          ><a href="#" aria-label="Twitter">X</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- STICKY BAR -->
+    <div class="sticky-bar" id="stickyBar">
+      <a
+        href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20want%20my%20personalized%20horoscope."
+        target="_blank"
+        class="btn btn-gold"
+        ><span data-en="Get Horoscope" data-ta="ஜாதகம் பெறுக"
+          >Get Horoscope</span
+        ></a
+      ><a
+        href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20need%20to%20talk%20to%20an%20expert."
+        target="_blank"
+        class="btn btn-outline"
+        ><span data-en="Book a Call" data-ta="அழைப்பை முன்பதிவு செய்"
+          >Book a Call</span
+        ></a
+      >
+    </div>
+
+    <!-- WHATSAPP FLOAT -->
+    <a
+      href="https://wa.me/918778633417?text=Hi%20Luckymantra!%20I%20want%20to%20unlock%20my%20luck!"
+      target="_blank"
+      class="wa-float"
+      aria-label="Chat on WhatsApp"
+      ><svg viewBox="0 0 32 32">
+        <path
+          d="M16 2C8.28 2 2 8.28 2 16c0 2.66.72 5.14 2 7.28L2 30l6.72-2c2.14 1.28 4.62 2 7.28 2 7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.6c-2.28 0-4.52-.64-6.44-1.84l-.44-.28-4.68 1.24 1.24-4.56-.28-.48A11.52 11.52 0 014.4 16c0-6.4 5.2-11.6 11.6-11.6S27.6 9.6 27.6 16 22.4 27.6 16 27.6zm6.36-8.68c-.36-.16-2.08-1.04-2.4-1.16-.32-.12-.56-.16-.8.16-.24.36-.92 1.16-1.12 1.4-.2.24-.4.28-.76.08-.36-.16-1.52-.56-2.88-1.76-1.08-.96-1.8-2.12-2-2.48-.2-.36 0-.56.16-.72.16-.16.36-.4.52-.6.16-.2.24-.36.36-.6.12-.24.08-.44-.04-.6-.12-.16-.8-1.96-1.08-2.68-.28-.72-.6-.6-.8-.6-.2 0-.44-.04-.68-.04-.24 0-.6.08-.92.44-.32.36-1.24 1.24-1.24 2.96s1.28 3.44 1.44 3.68c.16.24 2.52 3.84 6.08 5.36.84.36 1.52.6 2.04.76.84.28 1.64.24 2.24.16.68-.12 2.08-.84 2.4-1.68.28-.84.28-1.52.2-1.68-.12-.12-.36-.2-.72-.36z"
+        /></svg
+    ></a>
+
+    <script>
+      // Loader
+      window.addEventListener("load", () =>
+        setTimeout(
+          () => document.getElementById("loader").classList.add("out"),
+          600
+        )
+      );
+      // Header scroll
+      const hdr = document.getElementById("hdr"),
+        stickyBar = document.getElementById("stickyBar");
+      window.addEventListener("scroll", () => {
+        hdr.classList.toggle("scrolled", scrollY > 50);
+        stickyBar.classList.toggle("show", scrollY > 500);
+      });
+      // Hamburger
+      const ham = document.getElementById("ham"),
+        mnav = document.getElementById("mnav");
+      ham.addEventListener("click", () => {
+        ham.classList.toggle("active");
+        mnav.classList.toggle("open");
+        document.body.style.overflow = mnav.classList.contains("open")
+          ? "hidden"
+          : "";
+      });
+
+      function closeM() {
+        ham.classList.remove("active");
+        mnav.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      mnav
+        .querySelectorAll("a")
+        .forEach((a, i) => (a.style.transitionDelay = `${0.04 * i}s`));
+      // Scroll reveal
+      const rvObs = new IntersectionObserver(
+        (e) => {
+          e.forEach((x) => {
+            if (x.isIntersecting) x.target.classList.add("vis");
+          });
+        },
+        {
+          threshold: 0.08,
+          rootMargin: "0px 0px -30px 0px",
+        }
+      );
+      document.querySelectorAll(".rv").forEach((el) => rvObs.observe(el));
+      // FAQ accordion
+      function toggleFaq(el) {
+        const item = el.parentElement;
+        const wasOpen = item.classList.contains("open");
+        document
+          .querySelectorAll(".faq-item.open")
+          .forEach((i) => i.classList.remove("open"));
+        if (!wasOpen) item.classList.add("open");
+      }
+      // ===== LANGUAGE SWITCHING =====
+      let currentLang = "en";
+      // Auto-detect browser language
+      (function () {
+        const browserLang = navigator.language || navigator.userLanguage || "";
+        if (browserLang.toLowerCase().startsWith("ta")) {
+          setLang("ta");
+        }
+      })();
+
+      function setLang(lang) {
+        currentLang = lang;
+        document.documentElement.setAttribute("data-lang", lang);
+        // Update lang buttons
+        document
+          .querySelectorAll(".lang-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document
+          .querySelector(`.lang-btn[onclick="setLang('${lang}')"]`)
+          .classList.add("active");
+        // Switch all text content
+        document.querySelectorAll("[data-" + lang + "]").forEach((el) => {
+          const val = el.getAttribute("data-" + lang);
+          if (val) el.textContent = val;
+        });
+        // Switch placeholders
+        document.querySelectorAll("[data-" + lang + "-ph]").forEach((el) => {
+          const val = el.getAttribute("data-" + lang + "-ph");
+          if (val) el.placeholder = val;
+        });
+      }
+      function sendToWhatsApp() {
+        var name = document.getElementById("name").value;
+        var dob = document.getElementById("dob").value;
+        var time = document.getElementById("time").value;
+        var place = document.getElementById("place").value;
+        var phone = document.getElementById("phone").value;
+        var email = document.getElementById("email").value;
+        var service = document.getElementById("service").value;
+
+        var message = `Hi Luckymantra, I would like to sumbit my Enquiry.
+
+      Name: ${name}
+      DOB: ${dob}
+      Time of Birth: ${time}
+      Place of Birth: ${place}
+      Phone: ${phone}
+      Email: ${email}
+      Service: ${service}`;
+
+        var url =
+          "https://wa.me/918778633417?text=" + encodeURIComponent(message);
+
+        window.open(url, "_blank");
+      }
+    </script>
+  </body>
+</html>
